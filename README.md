@@ -1,5 +1,5 @@
-# branch.manager
+# portfolio
 
-Portfolio (JP): Thai Tran Hoang Nha | Branch Operations & HR Management
+Portfolio (JP / EN / VI): Thai Tran Hoang Nha | Branch Operations & HR Management
 
-https://hoangnha1989.github.io/branch.manager/
+https://hoangnha1989.github.io/portfolio/
