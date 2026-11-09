@@ -256,9 +256,103 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
   html.js .rv{opacity:1!important;animation:none!important}
   *{animation:none!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+
+/* ═══ LANDING PAGE (chỉ áp cho màn hình; bản in vẫn là A4) ═══ */
+@media screen{
+  html{scroll-behavior:smooth}
+  body{background:#fdfbf8}
+  .wrap{display:block;padding:0;background:none;min-height:0}
+  .pg{--gut:max(40px,calc((100% - 1080px) / 2));
+    width:auto;max-width:none;height:auto;min-height:0;border-radius:0;box-shadow:none;
+    padding:104px var(--gut) 96px;scroll-margin-top:0}
+  .pg:nth-of-type(even):not(.pg--dark){background:linear-gradient(180deg,#f6f3fb,#f9f7fc)}
+  .pg:nth-of-type(odd):not(.pg--dark){background:#fdfbf8}
+  .pg[data-chap]::before{width:6px}
+  [data-num]::after{font-size:220px;right:var(--gut);bottom:-40px;letter-spacing:-8px}
+  .kw{font-size:52px}
+  .kw-sub{font-size:15px;max-width:760px}
+  .pg>.ft{display:none}
+  [data-num]::after{display:none}
+  .g2 .ch svg{max-width:460px;margin:0 auto}
+  .sb-nav a em{min-width:26px}
+  #contact>.ft{display:flex}
+  #toc{display:none}
+  .wrap .pg[data-even]>.rv~.rv:not(.kw):not(.kw-en):not(.kwbar):not(.kw-sub){margin-top:22px!important}
+  .wrap .pg .cyc-loop{margin-top:10px!important}
+  .g2,.g3{gap:18px}
+  .card{padding:22px 24px}
+  /* bìa = hero toàn màn hình */
+  #cover{min-height:100vh;padding-top:120px}
+  #cover .cover-photo{right:var(--gut);top:120px;width:340px;height:452px}
+  #cover>div:not(.deco):not(.cover-photo){max-width:640px}
+  #contact{min-height:80vh}
+  /* sidebar */
+  .wrap{padding-right:248px}
+  .sb{position:fixed;top:0;right:0;width:248px;height:100vh;z-index:50;
+    background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border-left:1px solid #ece8f3;box-shadow:-20px 0 50px -40px rgba(60,50,90,.5)}
+  .sb-in{height:100%;display:flex;flex-direction:column;padding:28px 18px 22px}
+  .sb-me b{display:block;font:700 15px 'Space Grotesk',sans-serif;letter-spacing:-.3px;color:#16141d}
+  .sb-me span{display:block;margin-top:3px;font:700 10px 'Noto Sans JP',sans-serif;letter-spacing:.18em;color:#6d5bd0}
+  .sb-prog{margin:16px 0 12px;height:3px;border-radius:3px;background:#ece8f3;overflow:hidden}
+  .sb-prog span{display:block;height:100%;width:0;background:linear-gradient(90deg,#3b2f86,#26B3F4);transition:width .15s}
+  .sb-nav{flex:1;overflow:auto;display:flex;flex-direction:column;gap:2px;margin:0 -6px;padding:0 6px}
+  .sb-nav a{position:relative;display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;
+    text-decoration:none;color:#5b5568;font:600 12.5px 'Noto Sans JP',sans-serif;transition:background .2s,color .2s}
+  .sb-nav a em{font:700 11px 'Space Grotesk',sans-serif;font-style:normal;color:#a29cb3;min-width:20px}
+  .sb-nav a:hover{background:#f3f0fa;color:#3b2f86}
+  .sb-nav a.on{background:linear-gradient(90deg,#3b2f86,#5b4bc4);color:#fff;box-shadow:0 10px 22px -14px rgba(59,47,134,.9)}
+  .sb-nav a.on em{color:#8fd8ff}
+  .sb-pdf{margin-top:14px;display:block;text-align:center;padding:10px 12px;border-radius:12px;text-decoration:none;
+    font:700 12px 'Noto Sans JP',sans-serif;color:#3b2f86;border:1.5px solid #cfc6ef;background:#fff}
+  .sb-pdf:hover{background:#f3f0fa}
+  .sb-btn{display:none}
+}
+@media screen and (max-width:1100px){
+  .wrap{padding-right:0}
+  .sb{transform:translateX(105%);transition:transform .3s cubic-bezier(.2,.7,.2,1);width:270px}
+  .sb.open{transform:none}
+  .sb-in{padding-bottom:84px}
+  .sb-btn{display:block;position:fixed;right:16px;bottom:16px;z-index:60;padding:12px 18px;border:0;border-radius:999px;
+    background:linear-gradient(90deg,#3b2f86,#5b4bc4);color:#fff;font:700 13px 'Noto Sans JP',sans-serif;
+    box-shadow:0 14px 30px -12px rgba(59,47,134,.8);cursor:pointer}
+}
+@media screen and (max-width:900px){
+  .pg{padding:64px 18px 56px}
+  #cover{padding-top:48px}
+  #cover .cover-photo{position:relative;right:auto;top:auto;width:220px;height:294px;margin:0 0 24px}
+  [data-num]::after{font-size:96px;right:12px;bottom:-14px}
+  .kw{font-size:30px!important}
+}
+@media print{.sb,.sb-btn{display:none!important}}
 </style>
 </head>
 <body>
+<aside class="sb" id="sb" aria-label="目次">
+  <div class="sb-in">
+    <div class="sb-me"><b>Thai Tran Hoang Nha</b><span>タイ　チャン　ホアン　ニャ</span></div>
+    <div class="sb-prog"><span id="sbProg"></span></div>
+    <nav class="sb-nav">
+      <a href="#cover" data-sec="cover"><em>TOP</em><span>トップ</span></a>
+      <a href="#profile" data-sec="profile"><em>01</em><span>プロフィール</span></a>
+      <a href="#numbers" data-sec="numbers"><em>02</em><span>数字で見る</span></a>
+      <a href="#skillmap" data-sec="skillmap"><em>03</em><span>6つのスキル</span></a>
+      <a href="#career" data-sec="career"><em>04</em><span>キャリア</span></a>
+      <a href="#s1" data-sec="s1"><em>05</em><span>拠点経営</span></a>
+      <a href="#s2" data-sec="s2"><em>06</em><span>本社連携</span></a>
+      <a href="#s3" data-sec="s3"><em>07</em><span>人事、労務</span></a>
+      <a href="#s4" data-sec="s4"><em>08</em><span>営業、予算</span></a>
+      <a href="#s5" data-sec="s5"><em>09</em><span>語学とAI</span></a>
+      <a href="#aiops" data-sec="aiops"><em>10</em><span>AI業務管理</span></a>
+      <a href="#aidash" data-sec="aidash"><em>11</em><span>AIダッシュボード</span></a>
+      <a href="#pr" data-sec="pr"><em>12</em><span>自己PR</span></a>
+      <a href="#contact" data-sec="contact"><em>13</em><span>連絡先</span></a>
+    </nav>
+    <a class="sb-pdf" href="Portfolio_ThaiTranHoangNha_JP.pdf" target="_blank" rel="noopener">PDF版を開く</a>
+  </div>
+</aside>
+<button class="sb-btn" id="sbBtn" type="button" aria-controls="sb" aria-expanded="false">目次</button>
+
 <main class="wrap">
 
 <!-- ═══════ 00 表紙 ═══════ -->
@@ -850,6 +944,25 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   pages.forEach(function(p){io.observe(p)});
   window.addEventListener('beforeprint',function(){pages.forEach(function(p){p.classList.add('in')})});
+})();
+</script>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.sb-nav a'));
+  var map={};links.forEach(function(a){map[a.dataset.sec]=a});
+  var sb=document.getElementById('sb'),btn=document.getElementById('sbBtn'),prog=document.getElementById('sbProg');
+  function setOn(id){links.forEach(function(a){a.classList.toggle('on',a.dataset.sec===id)})}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&map[e.target.id])setOn(e.target.id)})},
+      {rootMargin:'-45% 0px -50% 0px'});
+    Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)});
+  }
+  setOn('cover');
+  function onScroll(){var h=document.documentElement;var p=h.scrollTop/((h.scrollHeight-h.clientHeight)||1);prog.style.width=(p*100).toFixed(1)+'%'}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  btn.addEventListener('click',function(){var o=sb.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.textContent=o?'閉じる':'目次'});
+  links.forEach(function(a){a.addEventListener('click',function(){if(window.innerWidth<=1100){sb.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='目次'}})});
 })();
 </script>
 </body>
