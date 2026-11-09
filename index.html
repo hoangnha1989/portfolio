@@ -173,6 +173,62 @@ nav.toc.grow{display:flex;flex-direction:column;justify-content:space-between}
 .aitab b{font:700 12.5px 'Noto Sans JP',sans-serif;color:#3b2f86}
 .pg[data-even]>.rv~.rv:not(.kw):not(.kw-en):not(.kwbar):not(.kw-sub){margin-top:14px}
 
+
+/* AI業務管理 section */
+.cyc{display:grid;grid-template-columns:1fr 18px 1fr 18px 1fr 18px 1fr;align-items:stretch;gap:0}
+.cyc-c{padding:14px 12px}
+.cyc-c h3{font-size:13.5px;margin:4px 0 4px}
+.card .cyc-c p,.cyc-c p{font-size:11.2px;line-height:1.65}
+.cyc-n{font:700 20px 'Space Grotesk',sans-serif;color:#6d5bd0}
+.cyc-a{align-self:center;text-align:center;font:700 16px 'Space Grotesk',sans-serif;color:#6d5bd0}
+.cyc-loop{margin-top:6px;text-align:center;font:700 11px 'Noto Sans JP',sans-serif;letter-spacing:.06em;color:#6d5bd0}
+.fl{position:relative;display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:6px 0 12px}
+.fl::before{content:'';position:absolute;left:7%;right:7%;top:15px;height:2px;
+  background:repeating-linear-gradient(90deg,#6d5bd0 0 6px,transparent 6px 11px);animation:pmFlowX 1.2s linear infinite}
+@keyframes pmFlowX{to{background-position:11px 0}}
+.fl-step{position:relative;text-align:center}
+.fl-dot{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;
+  background:#fff;border:2px solid #6d5bd0;font:700 13px 'Space Grotesk',sans-serif;color:#3b2f86}
+.fl-step:last-child .fl-dot{background:#1FB6A6;border-color:#1FB6A6;color:#fff}
+.card .fl-step p,.fl-step p{margin-top:6px;font:600 10.5px/1.45 'Noto Sans JP',sans-serif;color:#3d3849}
+.dod{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border-radius:12px;background:#f3fbf9;border:1px solid #cdeee8}
+.dod b{white-space:nowrap;font:700 11.5px 'Noto Sans JP',sans-serif;color:#0f8f83}
+.dod span{font:400 11.4px/1.7 'Noto Sans JP',sans-serif;color:#3d3849}
+.rp{display:grid;grid-template-columns:44px 70px 70px 54px 1fr;gap:8px;padding:7px 0;border-bottom:1px dashed #e0dbea;
+  font:500 11.4px 'Noto Sans JP',sans-serif;color:#3d3849;align-items:center}
+.rp:last-child{border-bottom:0}
+.rp-h{font:800 9px 'Manrope','Noto Sans JP',sans-serif;letter-spacing:.12em;color:#8a83a0;border-bottom:1px solid #ece8f3}
+.rp b{font:700 12px 'Space Grotesk',sans-serif;color:#3b2f86}
+.rp em{font-style:normal;font-size:10.5px;color:#6d5bd0;font-weight:700}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi .card{padding:12px 14px}
+.kpi .lbl{margin-bottom:2px}
+.card .kpi .num,.kpi .num{font-size:32px}
+.ch{padding:12px 14px}
+.card .ch-t,.ch-t{font:500 10.5px 'Noto Sans JP',sans-serif;color:#8a83a0;margin:-4px 0 6px}
+.ch svg{display:block;overflow:visible}
+.ch svg g:hover rect:first-of-type,.ch svg g:hover circle{filter:brightness(1.18)}
+.st-row{display:grid;grid-template-columns:78px 50px 1fr 110px 90px 34px;gap:8px;align-items:center;padding:4px 0;
+  border-bottom:1px dashed #e0dbea;font:500 11.2px 'Noto Sans JP',sans-serif;color:#3d3849}
+.st-row:last-child{border-bottom:0}
+.st-row>b{font-weight:700;color:#16141d}
+.st-pill{display:inline-flex;align-items:center;gap:5px;padding:2px 8px 2px 3px;border:1px solid;border-radius:999px;font:700 10px 'Noto Sans JP',sans-serif;background:#fff}
+.st-pill i{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;color:#fff;font:800 9px 'Manrope',sans-serif;font-style:normal}
+.st-step{font-size:10.5px;color:#6d5bd0;font-weight:700}
+.st-days{height:8px;border-radius:4px;background:#f1eef7;overflow:hidden}
+.st-days>span{display:block;height:100%;border-radius:4px}
+.st-n{text-align:right}
+@media screen and (max-width:900px){
+  .cyc{grid-template-columns:1fr}
+  .cyc-a{transform:rotate(90deg);margin:2px 0}
+  .fl{grid-template-columns:repeat(4,1fr);row-gap:12px}
+  .fl::before{display:none}
+  .kpi{grid-template-columns:1fr 1fr}
+  .rp{grid-template-columns:30px 50px 44px 40px 1fr;font-size:10.5px}
+  .st-row{grid-template-columns:70px 44px 1fr;row-gap:4px}
+  .st-step,.st-days,.st-n{grid-column:auto}
+}
+
 /* Hiệu ứng xuất hiện khi cuộn tới */
 html.js .rv{opacity:0}
 html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0ms)}
@@ -250,11 +306,13 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
     <a href="#s3"><em>08</em><b>Skill 03　人事、労務</b><span>HR &amp; Labour</span></a>
     <a href="#s4"><em>09</em><b>Skill 04　営業と予算管理</b><span>Sales</span></a>
     <a href="#s5"><em>10</em><b>Skill 05、06　語学とAI活用</b><span>Language &amp; AI</span></a>
-    <a href="#pr"><em>11</em><b>自己PR　3つの力</b><span>Self PR</span></a>
-    <a href="#contact"><em>12</em><b>連絡先</b><span>Contact</span></a>
+    <a href="#aiops"><em>11</em><b>AIで進めるチームの業務管理</b><span>AI Management</span></a>
+    <a href="#aidash"><em>12</em><b>分析ダッシュボード（例）</b><span>AI Dashboard</span></a>
+    <a href="#pr"><em>13</em><b>自己PR　3つの力</b><span>Self PR</span></a>
+    <a href="#contact"><em>14</em><b>連絡先</b><span>Contact</span></a>
   </nav>
 
-  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>01 ／ 12</p></div>
+  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>01 ／ 14</p></div>
 </section>
 
 <!-- ═══════ 02 プロフィール ═══════ -->
@@ -296,7 +354,7 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
     </div>
   </div>
 
-  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>02 ／ 12</p></div>
+  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>02 ／ 14</p></div>
 </section>
 
 <!-- ═══════ 03 数字で見る ═══════ -->
@@ -324,7 +382,7 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
     <div><p class="num gr">3～4<small>名分</small></p><p class="num-l">以前は3～4名で行っていた業務を1名で処理</p></div>
   </div>
 
-  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>03 ／ 12</p></div>
+  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>03 ／ 14</p></div>
 </section>
 
 <!-- ═══════ 04 スキルマップ ═══════ -->
@@ -368,7 +426,7 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
     </div>
   </div>
 
-  <div class="ft" style="margin-top:22px"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>04 ／ 12</p></div>
+  <div class="ft" style="margin-top:22px"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>04 ／ 14</p></div>
 </section>
 
 <!-- ═══════ 05 キャリアの歩み ═══════ -->
@@ -410,7 +468,7 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
     </div>
   </div>
 
-  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>05 ／ 12</p></div>
+  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>05 ／ 14</p></div>
 </section>
 
 <!-- ═══════ 06 Skill 01 拠点経営 ═══════ -->
@@ -460,7 +518,7 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
     <p>社員ごとの勤務時間、架電数、メール数、顧客訪問数、成約率、売上を確認し、報告書にまとめて改善策を提案しました。</p>
   </div>
 
-  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>06 ／ 12</p></div>
+  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>06 ／ 14</p></div>
 </section>
 
 <!-- ═══════ 07 Skill 02 本社連携 ═══════ -->
@@ -504,7 +562,7 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
     <p style="margin-top:8px">日本人とベトナム人の考え方の違いを踏まえて研修資料を作成し、報連相、交渉、数値報告を社員に指導しています。リモート環境でも自ら計画を立て、早めの報告と相談を心がけています。</p>
   </div>
 
-  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>07 ／ 12</p></div>
+  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>07 ／ 14</p></div>
 </section>
 
 <!-- ═══════ 08 Skill 03 人事、労務 ═══════ -->
@@ -559,7 +617,7 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
     </div>
   </div>
 
-  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>08 ／ 12</p></div>
+  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>08 ／ 14</p></div>
 </section>
 
 <!-- ═══════ 09 Skill 04 営業 ═══════ -->
@@ -602,7 +660,7 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
     </div>
   </div>
 
-  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>09 ／ 12</p></div>
+  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>09 ／ 14</p></div>
 </section>
 
 <!-- ═══════ 10 Skill 05、06 語学とAI ═══════ -->
@@ -645,11 +703,86 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
     </div>
   </div>
 
-  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>10 ／ 12</p></div>
+  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>10 ／ 14</p></div>
 </section>
 
-<!-- ═══════ 11 自己PR ═══════ -->
-<section class="pg" data-chap="I" data-num="11" id="pr">
+<!-- ═══════ 11 AI業務管理：仕組み ═══════ -->
+<section class="pg" data-even data-chap="IV" data-num="11" id="aiops">
+  <div class="deco halo" style="right:-180px;top:-160px;background:radial-gradient(circle,rgba(109,91,208,.20),transparent 65%)"></div>
+  <p class="eb rv">AI Management <b>／ AIで進めるチームの業務管理</b></p>
+  <h2 class="kw rv" style="--d:60ms">仕事の流れを決め、<br /><i>数字で見える化</i>する。</h2>
+  <p class="kw-sub rv" style="--d:100ms">約5名のチームを、標準化した工程と毎日の数字で管理しています。分析はClaudeで行い、毎日のミーティングで確認します。</p>
+  <div class="kwbar rv" style="--d:130ms"><span></span></div>
+
+  <div class="cyc rv" style="--d:160ms">
+    <div class="card cyc-c"><span class="cyc-n">01</span><h3>工程の標準化</h3><p>各メンバーが自分の業務をA～Zで書き出し、「完了」の定義を決める</p></div>
+    <span class="cyc-a">→</span>
+    <div class="card cyc-c"><span class="cyc-n">02</span><h3>日次報告</h3><p>作業時間、タスク数、各タスクの進捗を毎日報告</p></div>
+    <span class="cyc-a">→</span>
+    <div class="card cyc-c" style="border-color:#cfc6ef;background:linear-gradient(160deg,#fff,#f4f1fd)"><span class="cyc-n">03</span><h3>Claudeで分析</h3><p>工程ごとの時間、完了率、停滞しているタスクと日数を算出</p></div>
+    <span class="cyc-a">→</span>
+    <div class="card cyc-c"><span class="cyc-n">04</span><h3>毎日の確認</h3><p>ミーティングで進捗と状態を確認し、次の行動を決める</p></div>
+  </div>
+  <p class="cyc-loop rv" style="--d:180ms;margin-top:8px!important">↻　毎日くり返し、工程そのものも見直す</p>
+
+  <div class="card rv" style="--d:200ms">
+    <span class="lbl">Example ／ 例：営業プレゼン資料の作成</span>
+    <div class="fl"><div class="fl-step"><span class="fl-dot">1</span><p>資料収集</p></div><div class="fl-step"><span class="fl-dot">2</span><p>技術部門へ確認</p></div><div class="fl-step"><span class="fl-dot">3</span><p>技術的な質問</p></div><div class="fl-step"><span class="fl-dot">4</span><p>修正、調整</p></div><div class="fl-step"><span class="fl-dot">5</span><p>ダブルチェック</p></div><div class="fl-step"><span class="fl-dot">6</span><p>提出</p></div><div class="fl-step"><span class="fl-dot">7</span><p>報告</p></div></div>
+    <div class="dod"><b>完了の定義</b><span>技術部門の確認を終えた資料をダブルチェックし、提出して上司に報告した時点で「完了」とする。途中の工程で止まっていれば「進行中」として日数を数える。</span></div>
+  </div>
+
+  <div class="card rv" style="--d:240ms">
+    <span class="lbl">Daily Report ／ 日次報告のフォーマット（例）</span>
+    <div class="rp rp-h"><span>担当</span><span>作業時間</span><span>タスク数</span><span>完了</span><span>進行中のタスクと工程</span></div>
+    <div class="rp"><b>A</b><span>7.5h</span><span>6件</span><span>5件</span><span>見積書の作成　<em>4／7 修正、調整</em></span></div>
+    <div class="rp"><b>C</b><span>8.0h</span><span>5件</span><span>3件</span><span>見積書の作成　<em>5／7 ダブルチェック</em></span></div>
+    <div class="rp"><b>D</b><span>7.0h</span><span>4件</span><span>2件</span><span>営業プレゼン資料　<em>2／7 技術部門へ確認</em></span></div>
+  </div>
+
+  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>11 ／ 14</p></div>
+</section>
+
+<!-- ═══════ 12 AI業務管理：ダッシュボード ═══════ -->
+<section class="pg" data-chap="IV" data-num="12" id="aidash">
+  <p class="eb rv">AI Dashboard <b>／ Claudeによる分析（例）</b></p>
+  <h2 class="kw rv" style="--d:60ms">どこで止まっているかを、<br /><i>毎朝ひと目で</i>。</h2>
+  <p class="kw-sub rv" style="--d:100ms">5名分の日次報告をClaudeが集計し、工程ごとの時間、完了率（着手したタスクのうち完了した割合）、停滞タスクをまとめます。</p>
+  <div class="kwbar rv" style="--d:130ms"><span></span></div>
+
+  <div class="kpi rv" style="--d:160ms">
+    <div class="card"><span class="lbl">本日の完了</span><p class="num gr">23<small>／27件</small></p></div>
+    <div class="card"><span class="lbl">完了率</span><p class="num gr">85<small>%</small></p></div>
+    <div class="card"><span class="lbl">停滞タスク</span><p class="num" style="color:#c14343">3<small>件</small></p></div>
+    <div class="card"><span class="lbl">最長の停滞</span><p class="num" style="color:#c14343">3<small>日</small></p></div>
+  </div>
+
+  <div class="g2 rv" style="--d:200ms;margin-top:10px">
+    <div class="card ch"><span class="lbl">Chart 1 ／ 工程別の平均所要時間</span><p class="ch-t">例：営業プレゼン資料（1件あたり）</p><svg viewBox="0 0 320 219" width="100%" role="img" aria-label="工程別の平均所要時間（例）" font-family="'Noto Sans JP',sans-serif"><line x1="104.0" y1="4" x2="104.0" y2="199" stroke="#ece8f3" stroke-width="1"/><text x="104.0" y="213" font-size="9" fill="#8a83a0" text-anchor="middle">0h</text><line x1="137.0" y1="4" x2="137.0" y2="199" stroke="#ece8f3" stroke-width="1"/><text x="137.0" y="213" font-size="9" fill="#8a83a0" text-anchor="middle">1h</text><line x1="170.0" y1="4" x2="170.0" y2="199" stroke="#ece8f3" stroke-width="1"/><text x="170.0" y="213" font-size="9" fill="#8a83a0" text-anchor="middle">2h</text><line x1="203.0" y1="4" x2="203.0" y2="199" stroke="#ece8f3" stroke-width="1"/><text x="203.0" y="213" font-size="9" fill="#8a83a0" text-anchor="middle">3h</text><line x1="236.0" y1="4" x2="236.0" y2="199" stroke="#ece8f3" stroke-width="1"/><text x="236.0" y="213" font-size="9" fill="#8a83a0" text-anchor="middle">4h</text><text x="96" y="21" font-size="10.5" fill="#3d3849" text-anchor="end" font-weight="500">資料収集</text><g><title>資料収集：平均 2.5時間</title><rect x="104" y="11" width="82.5" height="13" rx="3" fill="#6d5bd0"/><rect x="104" y="8" width="192" height="23" fill="transparent"/></g><text x="192.5" y="21" font-size="10" fill="#16141d" font-weight="700">2.5h</text><text x="96" y="48" font-size="10.5" fill="#3d3849" text-anchor="end" font-weight="700">技術部門へ確認</text><g><title>技術部門へ確認：平均 4.0時間</title><rect x="104" y="38" width="132.0" height="13" rx="3" fill="#F68209"/><rect x="104" y="35" width="192" height="23" fill="transparent"/></g><text x="242.0" y="48" font-size="10" fill="#16141d" font-weight="700">4.0h</text><text x="270.0" y="48" font-size="9.5" fill="#F68209" font-weight="700">ボトルネック</text><text x="96" y="75" font-size="10.5" fill="#3d3849" text-anchor="end" font-weight="500">技術的な質問</text><g><title>技術的な質問：平均 1.5時間</title><rect x="104" y="65" width="49.5" height="13" rx="3" fill="#6d5bd0"/><rect x="104" y="62" width="192" height="23" fill="transparent"/></g><text x="159.5" y="75" font-size="10" fill="#16141d" font-weight="700">1.5h</text><text x="96" y="102" font-size="10.5" fill="#3d3849" text-anchor="end" font-weight="500">修正、調整</text><g><title>修正、調整：平均 3.0時間</title><rect x="104" y="92" width="99.0" height="13" rx="3" fill="#6d5bd0"/><rect x="104" y="89" width="192" height="23" fill="transparent"/></g><text x="209.0" y="102" font-size="10" fill="#16141d" font-weight="700">3.0h</text><text x="96" y="129" font-size="10.5" fill="#3d3849" text-anchor="end" font-weight="500">ダブルチェック</text><g><title>ダブルチェック：平均 1.0時間</title><rect x="104" y="119" width="33.0" height="13" rx="3" fill="#6d5bd0"/><rect x="104" y="116" width="192" height="23" fill="transparent"/></g><text x="143.0" y="129" font-size="10" fill="#16141d" font-weight="700">1.0h</text><text x="96" y="156" font-size="10.5" fill="#3d3849" text-anchor="end" font-weight="500">提出</text><g><title>提出：平均 0.5時間</title><rect x="104" y="146" width="16.5" height="13" rx="3" fill="#6d5bd0"/><rect x="104" y="143" width="192" height="23" fill="transparent"/></g><text x="126.5" y="156" font-size="10" fill="#16141d" font-weight="700">0.5h</text><text x="96" y="183" font-size="10.5" fill="#3d3849" text-anchor="end" font-weight="500">報告</text><g><title>報告：平均 0.5時間</title><rect x="104" y="173" width="16.5" height="13" rx="3" fill="#6d5bd0"/><rect x="104" y="170" width="192" height="23" fill="transparent"/></g><text x="126.5" y="183" font-size="10" fill="#16141d" font-weight="700">0.5h</text></svg></div>
+    <div class="card ch"><span class="lbl">Chart 2 ／ 担当者別の完了率</span><p class="ch-t">今週、着手タスクのうち完了した割合（%）。点線はチーム平均 81%</p><svg viewBox="0 0 300 200" width="100%" role="img" aria-label="担当者別の完了率（例）" font-family="'Noto Sans JP',sans-serif"><line x1="30" y1="174.0" x2="294" y2="174.0" stroke="#ece8f3"/><text x="24" y="177.0" font-size="9" fill="#8a83a0" text-anchor="end">0</text><line x1="30" y1="134.0" x2="294" y2="134.0" stroke="#ece8f3"/><text x="24" y="137.0" font-size="9" fill="#8a83a0" text-anchor="end">25</text><line x1="30" y1="94.0" x2="294" y2="94.0" stroke="#ece8f3"/><text x="24" y="97.0" font-size="9" fill="#8a83a0" text-anchor="end">50</text><line x1="30" y1="54.0" x2="294" y2="54.0" stroke="#ece8f3"/><text x="24" y="57.0" font-size="9" fill="#8a83a0" text-anchor="end">75</text><line x1="30" y1="14.0" x2="294" y2="14.0" stroke="#ece8f3"/><text x="24" y="17.0" font-size="9" fill="#8a83a0" text-anchor="end">100</text><g><title>担当 A：完了率 92%</title><rect x="41.0" y="26.8" width="30" height="147.2" rx="4" fill="#6d5bd0"/><rect x="30.0" y="14" width="52.0" height="160" fill="transparent"/></g><text x="56.0" y="21.8" font-size="10" fill="#16141d" font-weight="700" text-anchor="middle">92%</text><text x="56.0" y="191" font-size="10.5" fill="#3d3849" text-anchor="middle" font-weight="600">A</text><g><title>担当 B：完了率 85%</title><rect x="93.0" y="38.0" width="30" height="136.0" rx="4" fill="#6d5bd0"/><rect x="82.0" y="14" width="52.0" height="160" fill="transparent"/></g><text x="108.0" y="33.0" font-size="10" fill="#16141d" font-weight="700" text-anchor="middle">85%</text><text x="108.0" y="191" font-size="10.5" fill="#3d3849" text-anchor="middle" font-weight="600">B</text><g><title>担当 C：完了率 78%</title><rect x="145.0" y="49.2" width="30" height="124.8" rx="4" fill="#6d5bd0"/><rect x="134.0" y="14" width="52.0" height="160" fill="transparent"/></g><text x="160.0" y="44.2" font-size="10" fill="#16141d" font-weight="700" text-anchor="middle">78%</text><text x="160.0" y="191" font-size="10.5" fill="#3d3849" text-anchor="middle" font-weight="600">C</text><g><title>担当 D：完了率 64%</title><rect x="197.0" y="71.6" width="30" height="102.4" rx="4" fill="#6d5bd0"/><rect x="186.0" y="14" width="52.0" height="160" fill="transparent"/></g><text x="212.0" y="66.6" font-size="10" fill="#16141d" font-weight="700" text-anchor="middle">64%</text><text x="212.0" y="191" font-size="10.5" fill="#3d3849" text-anchor="middle" font-weight="600">D</text><g><title>担当 E：完了率 88%</title><rect x="249.0" y="33.2" width="30" height="140.8" rx="4" fill="#6d5bd0"/><rect x="238.0" y="14" width="52.0" height="160" fill="transparent"/></g><text x="264.0" y="28.2" font-size="10" fill="#16141d" font-weight="700" text-anchor="middle">88%</text><text x="264.0" y="191" font-size="10.5" fill="#3d3849" text-anchor="middle" font-weight="600">E</text><line x1="30" y1="44.4" x2="294" y2="44.4" stroke="#16141d" stroke-width="1.2" stroke-dasharray="4 3"/></svg></div>
+  </div>
+
+  <div class="card ch rv" style="--d:240ms;margin-top:10px"><span class="lbl">Chart 3 ／ チームの完了率の推移</span><p class="ch-t">2週間、日別（%）</p><svg viewBox="0 0 674 112" width="100%" role="img" aria-label="チームの完了率の推移（例）" font-family="'Noto Sans JP',sans-serif"><line x1="30" y1="90.0" x2="620" y2="90.0" stroke="#ece8f3"/><text x="24" y="93.0" font-size="9" fill="#8a83a0" text-anchor="end">60</text><line x1="30" y1="71.5" x2="620" y2="71.5" stroke="#ece8f3"/><text x="24" y="74.5" font-size="9" fill="#8a83a0" text-anchor="end">70</text><line x1="30" y1="53.0" x2="620" y2="53.0" stroke="#ece8f3"/><text x="24" y="56.0" font-size="9" fill="#8a83a0" text-anchor="end">80</text><line x1="30" y1="34.5" x2="620" y2="34.5" stroke="#ece8f3"/><text x="24" y="37.5" font-size="9" fill="#8a83a0" text-anchor="end">90</text><line x1="30" y1="16.0" x2="620" y2="16.0" stroke="#ece8f3"/><text x="24" y="19.0" font-size="9" fill="#8a83a0" text-anchor="end">100</text><line x1="325.0" y1="10" x2="325.0" y2="90" stroke="#8a83a0" stroke-dasharray="2 3"/><text x="30.0" y="11" font-size="9" fill="#8a83a0">1週目</text><text x="331.0" y="11" font-size="9" fill="#8a83a0">2週目（工程の見直し後）</text><path d="M30.0,90 L30.0,67.8 L95.6,64.1 L161.1,66.0 L226.7,58.5 L292.2,54.9 L357.8,53.0 L423.3,49.3 L488.9,51.1 L554.4,45.6 L620.0,41.9 L620.0,90 Z" fill="#6d5bd0" opacity=".10"/><polyline fill="none" stroke="#3b2f86" stroke-width="2" points="30.0,67.8 95.6,64.1 161.1,66.0 226.7,58.5 292.2,54.9 357.8,53.0 423.3,49.3 488.9,51.1 554.4,45.6 620.0,41.9"/><g><title>1週目 月曜日：72%</title><circle cx="30.0" cy="67.8" r="4" fill="#3b2f86" stroke="#fff" stroke-width="2"/><rect x="16.0" y="16" width="28" height="74" fill="transparent"/></g><text x="30.0" y="104" font-size="9" fill="#8a83a0" text-anchor="middle">月</text><g><title>1週目 火曜日：74%</title><circle cx="95.6" cy="64.1" r="4" fill="#3b2f86" stroke="#fff" stroke-width="2"/><rect x="81.6" y="16" width="28" height="74" fill="transparent"/></g><text x="95.6" y="104" font-size="9" fill="#8a83a0" text-anchor="middle">火</text><g><title>1週目 水曜日：73%</title><circle cx="161.1" cy="66.0" r="4" fill="#3b2f86" stroke="#fff" stroke-width="2"/><rect x="147.1" y="16" width="28" height="74" fill="transparent"/></g><text x="161.1" y="104" font-size="9" fill="#8a83a0" text-anchor="middle">水</text><g><title>1週目 木曜日：77%</title><circle cx="226.7" cy="58.5" r="4" fill="#3b2f86" stroke="#fff" stroke-width="2"/><rect x="212.7" y="16" width="28" height="74" fill="transparent"/></g><text x="226.7" y="104" font-size="9" fill="#8a83a0" text-anchor="middle">木</text><g><title>1週目 金曜日：79%</title><circle cx="292.2" cy="54.9" r="4" fill="#3b2f86" stroke="#fff" stroke-width="2"/><rect x="278.2" y="16" width="28" height="74" fill="transparent"/></g><text x="292.2" y="104" font-size="9" fill="#8a83a0" text-anchor="middle">金</text><g><title>2週目 月曜日：80%</title><circle cx="357.8" cy="53.0" r="4" fill="#3b2f86" stroke="#fff" stroke-width="2"/><rect x="343.8" y="16" width="28" height="74" fill="transparent"/></g><text x="357.8" y="104" font-size="9" fill="#8a83a0" text-anchor="middle">月</text><g><title>2週目 火曜日：82%</title><circle cx="423.3" cy="49.3" r="4" fill="#3b2f86" stroke="#fff" stroke-width="2"/><rect x="409.3" y="16" width="28" height="74" fill="transparent"/></g><text x="423.3" y="104" font-size="9" fill="#8a83a0" text-anchor="middle">火</text><g><title>2週目 水曜日：81%</title><circle cx="488.9" cy="51.1" r="4" fill="#3b2f86" stroke="#fff" stroke-width="2"/><rect x="474.9" y="16" width="28" height="74" fill="transparent"/></g><text x="488.9" y="104" font-size="9" fill="#8a83a0" text-anchor="middle">水</text><g><title>2週目 木曜日：84%</title><circle cx="554.4" cy="45.6" r="4" fill="#3b2f86" stroke="#fff" stroke-width="2"/><rect x="540.4" y="16" width="28" height="74" fill="transparent"/></g><text x="554.4" y="104" font-size="9" fill="#8a83a0" text-anchor="middle">木</text><g><title>2週目 金曜日：86%</title><circle cx="620.0" cy="41.9" r="4" fill="#3b2f86" stroke="#fff" stroke-width="2"/><rect x="606.0" y="16" width="28" height="74" fill="transparent"/></g><text x="620.0" y="104" font-size="9" fill="#8a83a0" text-anchor="middle">金</text><text x="38.0" y="81.8" font-size="10" fill="#16141d" font-weight="700">72%</text><text x="630.0" y="45.9" font-size="11" fill="#16141d" font-weight="700">86%</text></svg></div>
+
+  <div class="card rv" style="--d:280ms;margin-top:10px">
+    <span class="lbl">Stuck ／ 停滞しているタスク（朝のミーティングで確認）</span>
+    <div class="st-row"><span class="st-pill" style="color:#c14343;border-color:#c14343"><i style="background:#c14343">!</i>要対応</span>
+<b>担当 D</b><span>営業プレゼン資料</span><span class="st-step">技術部門へ確認</span>
+<span class="st-days"><span style="width:100%;background:#c14343"></span></span><b class="st-n">3日</b></div>
+<div class="st-row"><span class="st-pill" style="color:#d98a04;border-color:#d98a04"><i style="background:#d98a04">!</i>注意</span>
+<b>担当 C</b><span>見積書の作成</span><span class="st-step">ダブルチェック</span>
+<span class="st-days"><span style="width:67%;background:#d98a04"></span></span><b class="st-n">2日</b></div>
+<div class="st-row"><span class="st-pill" style="color:#8a83a0;border-color:#8a83a0"><i style="background:#8a83a0">i</i>確認</span>
+<b>担当 D</b><span>顧客リストの更新</span><span class="st-step">資料収集</span>
+<span class="st-days"><span style="width:33%;background:#8a83a0"></span></span><b class="st-n">1日</b></div>
+  </div>
+
+  <p class="rv" style="--d:300ms;margin-top:8px;margin-bottom:6px;font:500 10.5px/1.6 'Noto Sans JP',sans-serif;color:#8a83a0">※ グラフと表の数値は、仕組みを説明するためのサンプルです。</p>
+
+  <div class="ft"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>12 ／ 14</p></div>
+</section>
+
+<!-- ═══════ 13 自己PR ═══════ -->
+<section class="pg" data-chap="I" data-num="13" id="pr">
   <p class="eb rv">Self PR <b>／ 自己PR</b></p>
   <h2 class="kw rv" style="--d:60ms">私の<i>3つの力</i></h2>
   <div class="kwbar rv" style="--d:100ms"><span></span></div>
@@ -678,11 +811,11 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
     </div>
   </div>
 
-  <div class="ft" style="margin-top:22px"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>11 ／ 12</p></div>
+  <div class="ft" style="margin-top:22px"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>13 ／ 14</p></div>
 </section>
 
-<!-- ═══════ 12 連絡先 ═══════ -->
-<section class="pg pg--dark" data-chap="I" data-num="12" id="contact">
+<!-- ═══════ 14 連絡先 ═══════ -->
+<section class="pg pg--dark" data-chap="I" data-num="14" id="contact">
   <div class="deco halo" style="left:-180px;bottom:-160px"></div>
   <div class="deco rings"><div class="r1"></div><div class="r2"></div><div class="r3"></div></div>
   <p class="eb rv">Contact <b>／ 連絡先</b></p>
@@ -692,7 +825,7 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
   <div class="card rv" style="--d:140ms">
     <span class="lbl">Summary ／ まとめ</span>
     <div class="chips" style="margin-top:4px">
-      <span class="chip">01 拠点経営</span><span class="chip">02 日本本社との連携</span><span class="chip">03 人事、労務</span><span class="chip">04 営業と予算管理</span><span class="chip">05 語学</span><span class="chip">06 AI活用</span>
+      <span class="chip">01 拠点経営</span><span class="chip">02 日本本社との連携</span><span class="chip">03 人事、労務</span><span class="chip">04 営業と予算管理</span><span class="chip">05 語学</span><span class="chip">06 AI活用</span><span class="chip">AIでのチーム業務管理</span>
     </div>
     <p style="margin-top:12px">詳細は履歴書、職務経歴書にまとめております。面談の機会をいただけましたら幸いです。</p>
   </div>
@@ -705,7 +838,7 @@ html.js .pg.in .rv{animation:pmRise .82s cubic-bezier(.2,.7,.2,1) both;animation
     </div>
   </div>
 
-  <div class="ft" style="margin-top:26px"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>12 ／ 12</p></div>
+  <div class="ft" style="margin-top:26px"><p>Thai Tran Hoang Nha ／ Portfolio</p><p>14 ／ 14</p></div>
 </section>
 
 </main>
