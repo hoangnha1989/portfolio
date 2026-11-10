@@ -20,7 +20,7 @@ const navOf = (v) => {
   const m = html.match(new RegExp(`<nav class="sb-nav" data-for="${v}" hidden>([\\s\\S]*?)</nav>`));
   return m ? m[1] : '';
 };
-const SECS = { jd: ['jd-top', 'jd-company', 'jd-work', 'jd-req'], match: ['match-top', 'match-core', 'match-other'] };
+const SECS = { jd: ['jd-top', 'jd-bg', 'jd-work', 'jd-req'], match: ['match-top', 'match-core', 'match-other'] };
 for (const [v, ids] of Object.entries(SECS)) {
   const body = mainOf(v), nav = navOf(v);
   ok(body, `thiếu <main data-view="${v}">`);
@@ -46,7 +46,7 @@ for (const v of ['jd', 'match']) {
 // 3. CSS ẩn hiện theo ngôn ngữ
 for (const l of ['ja', 'en', 'vi']) ok(html.includes(`html[lang="${l}"] [data-l]:not([data-l="${l}"])`), `thiếu CSS ẩn khối khác ngôn ngữ cho ${l}`);
 
-// 4. JD nguyên văn (bản gốc tiếng Nhật, chép từ vietscout.jp/job/detail/7639)
+// 4. JD nguyên văn (bản gốc tiếng Nhật từ trang tuyển dụng; đã bỏ thông tin nhận diện công ty)
 const jd = mainOf('jd');
 const VERBATIM = [
   '【在宅勤務／月給1,500 USD】日系専門技術企業のベトナム現地法人 代表代行・経営責任者候補（日本語N2以上）',
@@ -76,7 +76,6 @@ const VERBATIM = [
   '試用期間：3ヶ月（試用期間中の給与条件の変動なし）',
   '賞与・インセンティブ：業績に応じて支給',
   '福利厚生：社会保険・医療保険完備、交通費支給、その他社内規程に準ずる手当',
-  '理化学機器・製薬関連等の分野において高い専門性と品質サポートを提供する日系企業です。',
   '現在現地法人のトップを務める日本人代表が、2027年7月に日本へ帰任する予定となっています。',
   '書類選考 → Web面接（1〜2回） → 最終面接（対面）',
   '応募期限：2026年11月13日まで',
@@ -96,10 +95,16 @@ const VERBATIM = [
   '週休2日制（土日）、ベトナムの祝日',
   '勤務地：ベトナム・ホーチミン市（主に自宅でのテレワーク／リモートワーク）',
   '8:00 ～ 16:00',
-  'THANK ASIA CO.,LTD',
-  'https://vietscout.jp/job/detail/7639',
 ];
 for (const s of VERBATIM) ok(jd.includes(s), `JD thiếu nguyên văn: ${s}`);
+// Không lộ công ty tuyển dụng (tên, trang đăng, mã tin, giới thiệu công ty). Viết bằng escape vì tests/ cũng được phát hành.
+const LEAK = new RegExp([
+  'tha\\x6eks?[\\s._-]*asia', '\\u30b5\\u30f3\\u30af\\u30b9', 'vietsc\\x6fut', '76\\x339',
+  '\\u4f1a\\u793e\\u540d', 'Company name', 'T\\u00ean c\\u00f4ng ty',
+  '\\u63a1\\u7528\\u4f01\\u696d\\u306e\\u8aac\\u660e', 'About the hiring company', 'Gi\\u1edbi thi\\u1ec7u c\\u00f4ng ty tuy\\u1ec3n d\\u1ee5ng',
+].join('|'), 'i');
+const leak = html.match(LEAK);
+ok(!leak, `còn thông tin nhận diện công ty: "${leak && leak[0]}"`);
 // bản dịch EN/VI có mặt (chuỗi đặc trưng)
 for (const s of ['Acting Representative', 'JLPT N2 or above', 'TOEIC around 500', 'Chief Accountant', 'Người đại diện tạm quyền', 'JLPT N2 trở lên', 'Kế toán trưởng'])
   ok(jd.includes(s), `JD thiếu bản dịch: ${s}`);
