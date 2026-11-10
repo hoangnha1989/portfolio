@@ -52,9 +52,9 @@ async function main() {
   };
 
   const EXPECT = {
-    ja: { jd: '代表代行・経営責任者候補', match: '主要6スキル', radar: '経営・事業計画' },
-    en: { jd: 'Acting Representative', match: '6 core skills', radar: 'Business planning' },
-    vi: { jd: 'Người đại diện tạm quyền', match: '6 kỹ năng chính', radar: 'Kế hoạch kinh doanh' },
+    ja: { jd: '代表代行・経営責任者候補', match: '主要6スキル', radar: '経営・事業計画', exp: '報連相' },
+    en: { jd: 'Acting Representative', match: '6 core skills', radar: 'Business planning', exp: 'Horenso' },
+    vi: { jd: 'Người đại diện tạm quyền', match: '6 kỹ năng chính', radar: 'Kế hoạch kinh doanh', exp: 'Horenso' },
   };
   // Kiểm hiển thị: chỉ khối đúng ngôn ngữ được thấy, view đúng, chuỗi đặc trưng có mặt
   const probe = (view, lang) => `(() => {
@@ -71,7 +71,7 @@ async function main() {
   })()`;
 
   for (const lang of ['ja', 'en', 'vi']) {
-    for (const [view, hash] of [['jd', 'jd-top'], ['match', 'match-top']]) {
+    for (const [view, hash] of [['jd', 'jd-top'], ['match', 'match-top'], ['exp', 'exp-horenso']]) {
       for (const w of [1280, 390]) {
         await go(`${pageUrl}?lang=${lang}#${hash}`, w);
         const r = await evaluate(probe(view, lang));
@@ -108,7 +108,7 @@ main().catch((e) => fails.push('lỗi chạy: ' + e.message)).finally(() => {
   setTimeout(() => {
     try { rmSync(dir, { recursive: true, force: true }); } catch {}
     if (fails.length) { console.error(`FAIL (${fails.length})\n- ` + fails.join('\n- ')); process.exit(1); }
-    console.log('PASS browser-jd-matching: 0 lỗi JS, 3 ngôn ngữ x 2 view x desktop/mobile, in A4 không cắt trang, 4 menu cũ mở được');
+    console.log('PASS browser-jd-matching: 0 lỗi JS, 3 ngôn ngữ x 3 view (JD, Matching, Management & Horenso) x desktop/mobile, in A4 không cắt trang, 4 menu cũ mở được');
     process.exit(0);
   }, 300);
 });
