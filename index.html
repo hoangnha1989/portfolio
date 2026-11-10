@@ -146,6 +146,27 @@ p{margin:0}
 .tl .yr{font:700 12px 'Space Grotesk',sans-serif;letter-spacing:.06em;color:#6d5bd0}
 .tl h3{margin:3px 0 2px}
 .tl .role{font:700 12px 'Noto Sans JP',sans-serif;color:#0f5a8c;margin-bottom:6px}
+/* Career: 1 ô lớn = 1 công ty; vị trí luân chuyển nội bộ lồng bên trong, nối bằng đường dọc */
+.tl .pos{list-style:none;margin:10px 0 0;padding:0 0 0 22px;position:relative;display:flex;flex-direction:column;gap:8px}
+.tl .pos::before{content:'';position:absolute;left:5px;top:12px;bottom:12px;width:2px;background:#d9d2f5}
+.tl .pos>li{position:relative;background:#f7f5fc;border-left:3px solid #d9d2f5;border-radius:8px;padding:8px 12px}
+.tl .pos>li.now{border-left-color:#1FB6A6}
+.tl .pos>li::before{content:'';position:absolute;left:-22px;top:13px;width:8px;height:8px;border-radius:50%;background:#fff;border:2px solid #6d5bd0}
+.tl .pos>li.now::before{background:#1FB6A6;border-color:#1FB6A6}
+.tl .pos .yr{font-size:11px}
+.tl .pos .role{margin:1px 0 2px}
+.tl .pos .role:last-child{margin-bottom:0}
+.tl .pos p:not(.yr):not(.role){font-size:12px;line-height:1.75}
+@media print{
+  .tl:has(>.co){gap:7px}
+  .tl>.co{padding:11px 18px}
+  .tl>.co::before{top:13px}
+  .tl>.co h3{margin:1px 0 0}
+  .tl .pos{margin-top:5px;gap:4px}
+  .tl .pos>li{padding:4px 10px}
+  .tl .pos>li::before{top:9px}
+  .tl .pos p:not(.yr):not(.role){font-size:11.6px;line-height:1.6}
+}
 
 /* Ảnh chân dung */
 .photo{position:relative;border-radius:22px;overflow:hidden;background:#e9ecf3}
@@ -390,6 +411,60 @@ main[hidden]{display:none!important}
 .lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 @media screen and (max-width:900px){.fl4{grid-template-columns:1fr 1fr}}
 @media print{.top{display:none!important}}
+
+/* ═══ JD + Matching: khối 3 ngôn ngữ data-l, ẩn hiện theo <html lang> do setLang đặt ═══ */
+html[lang="ja"] [data-l]:not([data-l="ja"]),html[lang="en"] [data-l]:not([data-l="en"]),html[lang="vi"] [data-l]:not([data-l="vi"]){display:none!important}
+.kw.jd-title{font-size:27px!important;line-height:1.5}
+.jd-ul{margin:0;padding-left:18px;font:400 12.4px/1.8 'Noto Sans JP',sans-serif;color:#3d3849}
+.jd-ul li{margin:2px 0}
+.jd-ul li::marker{color:#6d5bd0}
+.jd-lead{font:500 13.4px/1.85 'Noto Sans JP',sans-serif;color:#16141d;padding:12px 16px;border-left:3px solid #6d5bd0;background:#f6f3fb;border-radius:0 12px 12px 0}
+.jd-src{margin-top:12px;font:400 10.8px/1.7 'Noto Sans JP',sans-serif;color:#8a83a0;word-break:break-all}
+.jd-src a{color:#6d5bd0}
+.jd-step{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:8px 0;border-bottom:1px dashed #e0dbea}
+.jd-step:last-child{border-bottom:0}
+.jd-step b{font:700 12px 'Noto Sans JP',sans-serif;color:#3b2f86}
+.jd-step p{font:400 12.2px/1.7 'Noto Sans JP',sans-serif;color:#3d3849}
+.tb.jd-tb td:first-child{width:150px;white-space:nowrap;font-weight:700;color:#3b2f86}
+.mt-kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
+.mt-kpi .card{padding:14px 16px}
+.mt-kpi .num{font:800 30px 'Space Grotesk',sans-serif;color:#3b2f86;margin:0}
+.mt-kpi .num-l{font:500 11.4px/1.6 'Noto Sans JP',sans-serif;color:#5b5568}
+.radar-w{display:flex;justify-content:center}
+.radar{width:100%;max-width:560px;height:auto;overflow:visible}
+.radar .rg{fill:none;stroke:#e3def0;stroke-width:1}
+.radar .ra{stroke:#d6d0e6;stroke-width:1}
+.radar .r-jd{fill:rgba(246,130,9,.10);stroke:#F68209;stroke-width:2;stroke-dasharray:6 4}
+.radar .r-me{fill:rgba(59,47,134,.22);stroke:#3b2f86;stroke-width:2.4}
+.radar circle{fill:#3b2f86}
+.radar .rl{font:700 12px 'Noto Sans JP','Manrope',sans-serif;fill:#16141d}
+.radar .rs{font:700 11px 'Space Grotesk',sans-serif;fill:#6d5bd0}
+.radar .rt{font:600 9px 'Space Grotesk',sans-serif;fill:#a29cb3}
+.mc-sc{white-space:nowrap;font:700 12px 'Space Grotesk',sans-serif;color:#3b2f86}
+.mb-row{padding:7px 0;border-bottom:1px dashed #e0dbea}
+.mb-row:last-child{border-bottom:0}
+.mb-h{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.mb-h b{font:700 12.6px 'Noto Sans JP',sans-serif;color:#16141d}
+.mb-h em{font:800 15px 'Space Grotesk',sans-serif;font-style:normal;color:#3b2f86}
+.mb-row .bar{margin:5px 0 4px}
+.mb-row .bar--mid>span{background:linear-gradient(90deg,#0f8f83,#7ef0dd)}
+.mb-row .bar--lo>span{background:linear-gradient(90deg,#c14343,#F68209)}
+.mb-why{font:400 11.2px/1.6 'Noto Sans JP',sans-serif;color:#5b5568}
+@media print{
+  #match-other .mb-row{padding:4px 0}
+  #match-other .mb-row .bar{margin:4px 0 3px}
+  #match-other .mb-why{font-size:10.6px;line-height:1.5}
+}
+@media screen and (max-width:900px){
+  .kw.jd-title{font-size:21px!important}
+  .mt-kpi{grid-template-columns:1fr}
+  .jd-step{grid-template-columns:1fr;gap:2px}
+  .tb.jd-tb td:first-child{width:auto;white-space:normal}
+  .mc-tb thead{display:none}
+  .mc-tb,.mc-tb tbody,.mc-tb tr,.mc-tb td{display:block;width:auto}
+  .mc-tb tr{padding:10px 12px;border-bottom:1px dashed #ece8f3}
+  .mc-tb td{padding:2px 0;border:0;text-align:left!important}
+}
 </style>
 </head>
 <body>
@@ -401,6 +476,8 @@ main[hidden]{display:none!important}
       <a href="#fin-top" data-view="finance">Task: Finance</a>
       <a href="#hr-top" data-view="hr">Task: HR</a>
       <a href="#sales-top" data-view="sales">Task: Sales</a>
+      <a href="#jd-top" data-view="jd">JD</a>
+      <a href="#match-top" data-view="match">Matching</a>
     </nav>
   </div>
 </header>
@@ -446,6 +523,17 @@ main[hidden]{display:none!important}
       <a href="#sales-reports" data-sec="sales-reports"><em>02</em><span>報告と会議</span></a>
       <a href="#sales-kpi" data-sec="sales-kpi"><em>03</em><span>KPIの管理</span></a>
       <a href="#sales-flow" data-sec="sales-flow"><em>04</em><span>仕事の流れ</span></a>
+    </nav>
+    <nav class="sb-nav" data-for="jd" hidden>
+      <a href="#jd-top" data-sec="jd-top"><em>TOP</em><span data-l="ja">求人の概要</span><span data-l="en">Job overview</span><span data-l="vi">Tổng quan vị trí</span></a>
+      <a href="#jd-company" data-sec="jd-company"><em>01</em><span data-l="ja">企業と募集背景</span><span data-l="en">Company and background</span><span data-l="vi">Công ty và lý do tuyển</span></a>
+      <a href="#jd-work" data-sec="jd-work"><em>02</em><span data-l="ja">具体的な業務内容</span><span data-l="en">Responsibilities</span><span data-l="vi">Nội dung công việc</span></a>
+      <a href="#jd-req" data-sec="jd-req"><em>03</em><span data-l="ja">応募条件</span><span data-l="en">Requirements</span><span data-l="vi">Điều kiện ứng tuyển</span></a>
+    </nav>
+    <nav class="sb-nav" data-for="match" hidden>
+      <a href="#match-top" data-sec="match-top"><em>TOP</em><span data-l="ja">主要6スキル</span><span data-l="en">6 core skills</span><span data-l="vi">6 kỹ năng chính</span></a>
+      <a href="#match-core" data-sec="match-core"><em>01</em><span data-l="ja">評価の根拠</span><span data-l="en">Scoring basis</span><span data-l="vi">Căn cứ chấm điểm</span></a>
+      <a href="#match-other" data-sec="match-other"><em>02</em><span data-l="ja">その他の条件</span><span data-l="en">Other criteria</span><span data-l="vi">Các tiêu chí khác</span></a>
     </nav>
     <a class="sb-pdf" href="Portfolio_ThaiTranHoangNha_JP.pdf" target="_blank" rel="noopener">PDF版を開く</a>
   </div>
@@ -629,34 +717,57 @@ main[hidden]{display:none!important}
   <div class="kwbar rv" style="--d:100ms"><span></span></div>
 
   <div class="tl rv" style="--d:140ms">
-    <div class="now card">
-      <p class="yr">2024年3月 ～ 現在</p>
+    <div class="co now card">
+      <p class="yr">2022年2月 ～ 現在</p>
       <h3>MAYEKAWA VIETNAM CO., LTD.（MYCOM）</h3>
-      <p class="role">人事部 人事部長　／　関連スキル：02、03、06</p>
-      <p>1名体制から5名のチームに拡大し、日本人社長に直接報告しています。人事戦略、評価制度、労務、規程、採用を統括しています。</p>
+      <ol class="pos">
+        <li class="now">
+          <p class="yr">2024年3月 ～ 現在</p>
+          <p class="role">人事部 人事部長　／　関連スキル：02、03、06</p>
+          <p>1名体制から5名のチームに拡大し、日本人社長に直接報告しています。人事戦略、評価制度、労務、規程、採用を統括しています。</p>
+        </li>
+        <li>
+          <p class="yr">2022年2月 ～ 2024年3月</p>
+          <p class="role">営業部 アシスタントマネージャー　／　関連スキル：02、04</p>
+          <p>日本人社長を補佐し、営業担当2～3名を管理しました。営業部の予算、売上、経費を管理し、東京本社へ日本語で週次報告しました。</p>
+        </li>
+      </ol>
     </div>
-    <div class="card">
-      <p class="yr">2022年2月 ～ 2024年3月</p>
-      <h3>MAYEKAWA VIETNAM CO., LTD.</h3>
-      <p class="role">営業部 アシスタントマネージャー　／　関連スキル：02、04</p>
-      <p>日本人社長を補佐し、営業担当2～3名を管理しました。営業部の予算、売上、経費を管理し、東京本社へ日本語で週次報告しました。</p>
-    </div>
-    <div class="card">
+    <div class="co card">
       <p class="yr">2017年8月 ～ 2022年2月</p>
       <h3>JILNESTA, Inc.（日系ITアウトソーシング企業）</h3>
-      <p class="role">ITコミュニケーター → 2019年2月より ベトナム支店 支店長　／　関連スキル：01、02</p>
-      <p>通訳とエンジニアチームの管理を経て、支店長として約27名の支店を運営しました。営業プロセスと管理体制をゼロから構築しました。</p>
+      <ol class="pos">
+        <li>
+          <p class="yr">2019年2月 ～ 2022年2月</p>
+          <p class="role">ベトナム支店 支店長　／　関連スキル：01、02</p>
+          <p>通訳とエンジニアチームの管理を経て、支店長として約27名の支店を運営しました。営業プロセスと管理体制をゼロから構築しました。</p>
+        </li>
+        <li>
+          <p class="yr">2017年8月 ～ 2019年2月</p>
+          <p class="role">ITコミュニケーター</p>
+        </li>
+      </ol>
     </div>
-    <div class="card">
+    <div class="co card">
       <p class="yr">2015年6月 ～ 2017年8月</p>
       <h3>Isuzu Vietnam Co., Ltd.（日越合弁の自動車メーカー）</h3>
-      <p class="role">人事、採用担当 兼 日本語通訳／総務　／　関連スキル：02、03</p>
+      <ol class="pos">
+        <li>
+          <p class="yr">2015年6月 ～ 2017年8月</p>
+          <p class="role">人事、採用担当 兼 日本語通訳／総務　／　関連スキル：02、03</p>
+        </li>
+      </ol>
     </div>
-    <div class="card">
+    <div class="co card">
       <p class="yr">2011年9月 ～ 2015年6月</p>
       <h3>LienViet Post Bank</h3>
-      <p class="role">国際決済部 国際決済担当</p>
-      <p>法人顧客の輸出入決済（L/C、取立、T/T）と船積書類の審査を担当しました。</p>
+      <ol class="pos">
+        <li>
+          <p class="yr">2011年9月 ～ 2015年6月</p>
+          <p class="role">国際決済部 国際決済担当</p>
+          <p>法人顧客の輸出入決済（L/C、取立、T/T）と船積書類の審査を担当しました。</p>
+        </li>
+      </ol>
     </div>
   </div>
 
@@ -1403,6 +1514,343 @@ main[hidden]{display:none!important}
   <p class="ch-t rv" style="--d:240ms;margin:14px 0 0">出典：社内メールの予定表と送受信メール（2022～2024年）、営業部の評価シート（2023年）、組織図と職務記述書（2023年7月）、出張規程（2024年1月）</p>
 </section>
 </main>
+<main class="wrap" data-view="jd" hidden>
+<!-- JD: nguyên văn tiếng Nhật từ https://vietscout.jp/job/detail/7639 (lấy ngày 2026-11-10); EN/VI là bản dịch tham khảo -->
+<section class="pg" data-chap="II" id="jd-top">
+  <span class="eb rv">JOB DESCRIPTION　<b>VIETSCOUT #7639</b></span>
+  <div class="rv" style="--d:60ms" data-l="ja">
+    <h2 class="kw jd-title">【在宅勤務／月給1,500 USD】日系専門技術企業のベトナム現地法人 代表代行・経営責任者候補（日本語N2以上）</h2>
+    <div class="kwbar"><span></span></div>
+    <p class="jd-lead">ベトナム事業の統括、現地組織のマネジメント、事業拡大、および日本本社との連携・橋渡し全般をお任せします。<br />※権限範囲は会社規程およびベトナム法令に従って定めます。</p>
+    <div class="chips" style="margin:14px 0 16px"><span class="chip">ヘッドハンター・人材紹介会社</span><span class="chip">英語を活かせる</span><span class="chip">在宅・リモートワーク可</span><span class="chip">幹部登用・キャリアアップ可</span><span class="chip">ベトナム現地採用</span><span class="chip">土日完全休み</span><span class="chip">民間医療保険加入</span><span class="chip">出張あり（海外・国内）</span><span class="chip">日系グローバル企業</span><span class="chip">N1、N2保有者歓迎</span></div>
+    <span class="lbl">募集内容</span>
+    <div class="tbw"><table class="tb jd-tb"><tbody>
+      <tr><td>会社名</td><td>THANK ASIA CO.,LTD</td></tr>
+      <tr><td>職種</td><td>経営、役員、管理者、GD／GM、事業責任者</td></tr>
+      <tr><td>業種</td><td>医療・ヘルスケア・介護</td></tr>
+      <tr><td>勤務地</td><td>ホーチミン・ベトナム南部</td></tr>
+      <tr><td>勤務時間</td><td>8:00 ～ 16:00</td></tr>
+      <tr><td>雇用・契約形態</td><td>正社員</td></tr>
+      <tr><td>母国語言語</td><td>ベトナム</td></tr>
+      <tr><td>給与についての説明</td><td>・給与：月給 1,500 USD（グロス）<br />・試用期間：3ヶ月（試用期間中の給与条件の変動なし）<br />・賞与・インセンティブ：業績に応じて支給<br />・福利厚生：社会保険・医療保険完備、交通費支給、その他社内規程に準ずる手当</td></tr>
+      <tr><td>掲載開始日</td><td>2026/10/27</td></tr>
+    </tbody></table></div>
+    <p class="jd-src">原文：日本語（VietScout 掲載、2026年11月10日取得）。英語、ベトナム語は参考訳です。出典：<a href="https://vietscout.jp/job/detail/7639" target="_blank" rel="noopener">https://vietscout.jp/job/detail/7639</a></p>
+  </div>
+  <div class="rv" style="--d:60ms" data-l="en">
+    <h2 class="kw jd-title">[Remote / Monthly salary 1,500 USD] Acting Representative and Executive Manager Candidate for the Vietnam Subsidiary of a Japanese Specialist Technology Company (Japanese N2 or above)</h2>
+    <div class="kwbar"><span></span></div>
+    <p class="jd-lead">You will oversee the Vietnam business, manage the local organisation, grow the business, and handle all coordination and bridging with the head office in Japan.<br />* The scope of authority is set according to company rules and Vietnamese law.</p>
+    <div class="chips" style="margin:14px 0 16px"><span class="chip">Headhunter / recruitment agency</span><span class="chip">English used at work</span><span class="chip">Work from home / remote OK</span><span class="chip">Path to executive / career growth</span><span class="chip">Local hire in Vietnam</span><span class="chip">Saturdays and Sundays off</span><span class="chip">Private health insurance</span><span class="chip">Business trips (overseas and domestic)</span><span class="chip">Japanese global company</span><span class="chip">N1, N2 holders welcome</span></div>
+    <span class="lbl">Position details</span>
+    <div class="tbw"><table class="tb jd-tb"><tbody>
+      <tr><td>Company name</td><td>THANK ASIA CO.,LTD</td></tr>
+      <tr><td>Job category</td><td>Management, executive, manager, GD/GM, business head</td></tr>
+      <tr><td>Industry</td><td>Medical, healthcare, nursing care</td></tr>
+      <tr><td>Location</td><td>Ho Chi Minh City, Southern Vietnam</td></tr>
+      <tr><td>Working hours</td><td>8:00 to 16:00</td></tr>
+      <tr><td>Employment type</td><td>Full-time permanent employee</td></tr>
+      <tr><td>Native language</td><td>Vietnamese</td></tr>
+      <tr><td>Salary details</td><td>・Salary: 1,500 USD per month (gross)<br />・Probation: 3 months (no change in pay during probation)<br />・Bonus and incentives: paid according to performance<br />・Benefits: social insurance and health insurance, commuting allowance, other allowances under company rules</td></tr>
+      <tr><td>Posted on</td><td>2026/10/27</td></tr>
+    </tbody></table></div>
+    <p class="jd-src">Original: Japanese (posted on VietScout, retrieved 10 Nov 2026). The English and Vietnamese versions are reference translations. Source: <a href="https://vietscout.jp/job/detail/7639" target="_blank" rel="noopener">https://vietscout.jp/job/detail/7639</a></p>
+  </div>
+  <div class="rv" style="--d:60ms" data-l="vi">
+    <h2 class="kw jd-title">[Làm việc tại nhà / Lương tháng 1.500 USD] Ứng viên Người đại diện tạm quyền, người chịu trách nhiệm điều hành pháp nhân tại Việt Nam của một công ty kỹ thuật chuyên môn Nhật Bản (tiếng Nhật N2 trở lên)</h2>
+    <div class="kwbar"><span></span></div>
+    <p class="jd-lead">Phụ trách điều hành toàn bộ hoạt động kinh doanh tại Việt Nam, quản lý tổ chức tại chỗ, mở rộng kinh doanh, và toàn bộ việc phối hợp, làm cầu nối với trụ sở chính tại Nhật Bản.<br />* Phạm vi quyền hạn được quy định theo nội quy công ty và pháp luật Việt Nam.</p>
+    <div class="chips" style="margin:14px 0 16px"><span class="chip">Công ty săn đầu người, giới thiệu nhân sự</span><span class="chip">Dùng tiếng Anh</span><span class="chip">Được làm tại nhà, từ xa</span><span class="chip">Có lộ trình lên quản lý cấp cao</span><span class="chip">Tuyển dụng tại Việt Nam</span><span class="chip">Nghỉ thứ Bảy, Chủ nhật</span><span class="chip">Có bảo hiểm y tế tư nhân</span><span class="chip">Có đi công tác (trong và ngoài nước)</span><span class="chip">Công ty Nhật toàn cầu</span><span class="chip">Ưu tiên có N1, N2</span></div>
+    <span class="lbl">Thông tin tuyển dụng</span>
+    <div class="tbw"><table class="tb jd-tb"><tbody>
+      <tr><td>Tên công ty</td><td>THANK ASIA CO.,LTD</td></tr>
+      <tr><td>Nghề nghiệp</td><td>Điều hành, ban giám đốc, quản lý, GD/GM, người phụ trách kinh doanh</td></tr>
+      <tr><td>Ngành</td><td>Y tế, chăm sóc sức khoẻ, điều dưỡng</td></tr>
+      <tr><td>Nơi làm việc</td><td>TP. Hồ Chí Minh, miền Nam Việt Nam</td></tr>
+      <tr><td>Giờ làm việc</td><td>8:00 đến 16:00</td></tr>
+      <tr><td>Hình thức</td><td>Nhân viên chính thức</td></tr>
+      <tr><td>Tiếng mẹ đẻ</td><td>Tiếng Việt</td></tr>
+      <tr><td>Lương</td><td>・Lương: 1.500 USD mỗi tháng (gross)<br />・Thử việc: 3 tháng (lương không đổi trong thời gian thử việc)<br />・Thưởng, ưu đãi: theo kết quả kinh doanh<br />・Phúc lợi: đủ bảo hiểm xã hội, bảo hiểm y tế, phụ cấp đi lại, các phụ cấp khác theo quy định công ty</td></tr>
+      <tr><td>Ngày đăng</td><td>2026/10/27</td></tr>
+    </tbody></table></div>
+    <p class="jd-src">Bản gốc: tiếng Nhật (đăng trên VietScout, lấy ngày 10/11/2026). Bản tiếng Anh và tiếng Việt là bản dịch tham khảo. Nguồn: <a href="https://vietscout.jp/job/detail/7639" target="_blank" rel="noopener">https://vietscout.jp/job/detail/7639</a></p>
+  </div>
+</section>
+<section class="pg" data-chap="III" id="jd-company">
+  <span class="eb rv">01　<b>COMPANY &amp; BACKGROUND</b></span>
+  <div class="rv" style="--d:60ms" data-l="ja">
+    <h2 class="kw kw--sm">採用企業と<i>募集背景</i></h2>
+    <div class="kwbar"><span></span></div>
+    <div class="card"><span class="lbl">採用企業の説明</span><p>✓理化学機器・製薬関連等の分野において高い専門性と品質サポートを提供する日系企業です。</p></div>
+    <div class="card" style="margin-top:12px"><span class="lbl">【募集背景】</span><ul class="jd-ul">
+      <li>現在現地法人のトップを務める日本人代表が、2027年7月に日本へ帰任する予定となっています。それに伴い、2027年7月以降に「社長代行」として現地法人の経営・事業運営を担っていただける経営幹部候補を募集いたします。</li>
+      <li>ご入社から2027年6月までの約半年間、現代表から手厚く業務の引き継ぎを行います。また、2027年7月以降も日本本社の経営陣および前任代表が継続して事業運営のアドバイスやサポートを行いますので、安心して経営業務へステップアップできる環境です。</li>
+    </ul></div>
+    <div class="card" style="margin-top:12px"><span class="lbl">【入社後のステップ・期待成果イメージ】</span>
+      <div class="jd-step"><b>最初の90日</b><p>現状把握、主要顧客への挨拶回り、事業・財務・組織リスクの整理</p></div>
+      <div class="jd-step"><b>6か月</b><p>優先施策の実行、営業・管理体制の改善、定期報告の定着、現代表からの引継ぎ完了</p></div>
+      <div class="jd-step"><b>12か月</b><p>合意した売上・利益・組織・業務改善目標の達成状況の評価</p></div>
+    </div>
+    <div class="card" style="margin-top:12px"><span class="lbl">担当者からのメッセージ</span><ul class="jd-ul">
+      <li>■面接、選考プロセスについて：<br />・書類選考 → Web面接（1〜2回） → 最終面接（対面）</li>
+      <li>※応募期限：2026年11月13日まで</li>
+      <li>※入社時期：2026年12月予定</li>
+    </ul></div>
+  </div>
+  <div class="rv" style="--d:60ms" data-l="en">
+    <h2 class="kw kw--sm">The hiring company and <i>why they are hiring</i></h2>
+    <div class="kwbar"><span></span></div>
+    <div class="card"><span class="lbl">About the hiring company</span><p>✓ A Japanese company providing deep expertise and quality support in fields such as scientific instruments and pharmaceuticals.</p></div>
+    <div class="card" style="margin-top:12px"><span class="lbl">[Background]</span><ul class="jd-ul">
+      <li>The Japanese representative who currently heads the local subsidiary is scheduled to return to Japan in July 2027. The company is therefore looking for an executive candidate who can run the management and operations of the local subsidiary as "Acting President" from July 2027.</li>
+      <li>From joining until June 2027, about six months, the current representative will give a thorough handover. After July 2027, the head office management in Japan and the former representative will keep advising and supporting the business, so you can step up into management with confidence.</li>
+    </ul></div>
+    <div class="card" style="margin-top:12px"><span class="lbl">[Steps after joining and expected results]</span>
+      <div class="jd-step"><b>First 90 days</b><p>Understand the current situation, visit key customers to introduce yourself, map the business, financial and organisational risks</p></div>
+      <div class="jd-step"><b>6 months</b><p>Carry out priority measures, improve the sales and management set-up, make regular reporting routine, complete the handover from the current representative</p></div>
+      <div class="jd-step"><b>12 months</b><p>Review progress against the agreed sales, profit, organisation and process-improvement targets</p></div>
+    </div>
+    <div class="card" style="margin-top:12px"><span class="lbl">Message from the recruiter</span><ul class="jd-ul">
+      <li>■ Interview and selection process:<br />・Document screening → Web interview (1 to 2 rounds) → Final interview (in person)</li>
+      <li>* Application deadline: 13 November 2026</li>
+      <li>* Start date: planned for December 2026</li>
+    </ul></div>
+  </div>
+  <div class="rv" style="--d:60ms" data-l="vi">
+    <h2 class="kw kw--sm">Công ty tuyển dụng và <i>lý do tuyển</i></h2>
+    <div class="kwbar"><span></span></div>
+    <div class="card"><span class="lbl">Giới thiệu công ty tuyển dụng</span><p>✓ Công ty Nhật Bản có chuyên môn cao và hỗ trợ chất lượng trong các lĩnh vực như thiết bị khoa học, phòng thí nghiệm và dược phẩm.</p></div>
+    <div class="card" style="margin-top:12px"><span class="lbl">[Lý do tuyển dụng]</span><ul class="jd-ul">
+      <li>Người đại diện người Nhật đang đứng đầu pháp nhân tại Việt Nam dự kiến về nước vào tháng 7/2027. Vì vậy công ty tuyển ứng viên quản lý cấp cao để đảm nhận việc điều hành và vận hành kinh doanh của pháp nhân với vai trò "Quyền Tổng giám đốc" từ tháng 7/2027.</li>
+      <li>Từ khi vào làm đến tháng 6/2027, khoảng nửa năm, người đại diện hiện tại sẽ bàn giao công việc kỹ lưỡng. Sau tháng 7/2027, ban lãnh đạo trụ sở Nhật và người đại diện tiền nhiệm vẫn tiếp tục tư vấn, hỗ trợ việc điều hành, nên có thể yên tâm bước lên vai trò quản lý.</li>
+    </ul></div>
+    <div class="card" style="margin-top:12px"><span class="lbl">[Lộ trình sau khi vào làm và kết quả kỳ vọng]</span>
+      <div class="jd-step"><b>90 ngày đầu</b><p>Nắm hiện trạng, đi chào các khách hàng chính, rà soát rủi ro kinh doanh, tài chính và tổ chức</p></div>
+      <div class="jd-step"><b>6 tháng</b><p>Triển khai các biện pháp ưu tiên, cải thiện bộ máy kinh doanh và quản lý, duy trì báo cáo định kỳ, hoàn tất bàn giao từ người đại diện hiện tại</p></div>
+      <div class="jd-step"><b>12 tháng</b><p>Đánh giá mức đạt các mục tiêu đã thống nhất về doanh số, lợi nhuận, tổ chức và cải tiến công việc</p></div>
+    </div>
+    <div class="card" style="margin-top:12px"><span class="lbl">Lời nhắn của người phụ trách</span><ul class="jd-ul">
+      <li>■ Quy trình phỏng vấn, tuyển chọn:<br />・Sàng lọc hồ sơ → Phỏng vấn online (1 đến 2 vòng) → Phỏng vấn cuối (trực tiếp)</li>
+      <li>* Hạn nộp hồ sơ: đến ngày 13/11/2026</li>
+      <li>* Thời điểm vào làm: dự kiến tháng 12/2026</li>
+    </ul></div>
+  </div>
+</section>
+<section class="pg" data-chap="IV" id="jd-work">
+  <span class="eb rv">02　<b>RESPONSIBILITIES</b></span>
+  <div class="rv" style="--d:60ms" data-l="ja">
+    <h2 class="kw kw--sm">【具体的な<i>業務内容</i>】</h2>
+    <div class="kwbar"><span></span></div>
+    <div class="g2">
+      <div class="card"><h3>➀経営・事業計画</h3><ul class="jd-ul"><li>ベトナム事業計画および予算の策定と実行</li><li>売上、利益、キャッシュフロー等の予実・財務管理</li><li>新規事業機会の開拓と成長戦略の実行</li></ul></div>
+      <div class="card"><h3>➁組織・人材管理（ピープルマネジメント）</h3><ul class="jd-ul"><li>現地スタッフの採用、育成、評価、労務管理</li><li>組織体制の構築および業務プロセスの整備・最適化</li><li>企業文化の醸成、労働安全衛生、コンプライアンスの推進</li></ul></div>
+      <div class="card"><h3>➂営業・顧客対応</h3><ul class="jd-ul"><li>主要顧客および取引先との関係構築・深耕</li><li>営業活動全般の統括、販売戦略の策定、重要案件の進捗管理</li><li>顧客満足度およびサービス・品質の向上</li></ul></div>
+      <div class="card"><h3>④管理・財務</h3><ul class="jd-ul"><li>予算、支出、資金繰り、財務報告の統括・管理</li><li>会計、税務、契約、内部統制に関する社内担当者および外部専門家との連携</li><li>経営状況の定期的なレポーティング</li></ul></div>
+      <div class="card"><h3>➄日本本社連携</h3><ul class="jd-ul"><li>日本本社への定期報告および事業提案</li><li>本社方針の現地ローカライズ展開と進捗マネジメント</li><li>日本・ベトナム双方の商習慣や文化の違いを埋める円滑なコミュニケーション</li></ul></div>
+      <div class="card"><h3>⑥コンプライアンス・リスク管理</h3><ul class="jd-ul"><li>ベトナムの関連法令、社内規程、倫理基準の徹底と遵守</li><li>事業運営上のリスク把握・分析および本社への報告</li><li>必要に応じた法律・会計・税務の外部専門家との折衝・連携</li></ul></div>
+    </div>
+  </div>
+  <div class="rv" style="--d:60ms" data-l="en">
+    <h2 class="kw kw--sm">[Specific <i>responsibilities</i>]</h2>
+    <div class="kwbar"><span></span></div>
+    <div class="g2">
+      <div class="card"><h3>① Management and business planning</h3><ul class="jd-ul"><li>Draw up and carry out the Vietnam business plan and budget</li><li>Budget-versus-actual and financial management of sales, profit, cash flow and more</li><li>Find new business opportunities and carry out the growth strategy</li></ul></div>
+      <div class="card"><h3>② Organisation and people management</h3><ul class="jd-ul"><li>Hiring, training, evaluating and managing local staff, including labour matters</li><li>Build the organisation and set up and optimise work processes</li><li>Build the company culture and drive occupational safety and health, and compliance</li></ul></div>
+      <div class="card"><h3>③ Sales and customers</h3><ul class="jd-ul"><li>Build and deepen relationships with key customers and business partners</li><li>Lead all sales activities, set the sales strategy, track progress on key deals</li><li>Improve customer satisfaction and service and quality</li></ul></div>
+      <div class="card"><h3>④ Administration and finance</h3><ul class="jd-ul"><li>Oversee and manage budgets, spending, cash flow and financial reporting</li><li>Work with internal staff and outside specialists on accounting, tax, contracts and internal control</li><li>Report regularly on the state of the business</li></ul></div>
+      <div class="card"><h3>⑤ Coordination with the Japan head office</h3><ul class="jd-ul"><li>Regular reports and business proposals to the head office in Japan</li><li>Adapt head office policies locally and manage their progress</li><li>Smooth communication that bridges business practices and cultural differences between Japan and Vietnam</li></ul></div>
+      <div class="card"><h3>⑥ Compliance and risk management</h3><ul class="jd-ul"><li>Make sure relevant Vietnamese laws, company rules and ethical standards are fully followed</li><li>Identify and analyse business risks and report them to the head office</li><li>Negotiate and work with outside legal, accounting and tax specialists as needed</li></ul></div>
+    </div>
+  </div>
+  <div class="rv" style="--d:60ms" data-l="vi">
+    <h2 class="kw kw--sm">[<i>Nội dung công việc</i> cụ thể]</h2>
+    <div class="kwbar"><span></span></div>
+    <div class="g2">
+      <div class="card"><h3>① Điều hành, kế hoạch kinh doanh</h3><ul class="jd-ul"><li>Lập và thực hiện kế hoạch kinh doanh, ngân sách tại Việt Nam</li><li>Quản lý kế hoạch so với thực tế và tài chính: doanh số, lợi nhuận, dòng tiền</li><li>Tìm cơ hội kinh doanh mới và thực hiện chiến lược tăng trưởng</li></ul></div>
+      <div class="card"><h3>② Quản lý tổ chức, nhân sự</h3><ul class="jd-ul"><li>Tuyển dụng, đào tạo, đánh giá và quản lý lao động đối với nhân viên tại Việt Nam</li><li>Xây dựng bộ máy tổ chức, chuẩn hoá và tối ưu quy trình công việc</li><li>Xây dựng văn hoá công ty, thúc đẩy an toàn vệ sinh lao động và tuân thủ</li></ul></div>
+      <div class="card"><h3>③ Kinh doanh, chăm sóc khách hàng</h3><ul class="jd-ul"><li>Xây dựng và phát triển quan hệ với khách hàng, đối tác chính</li><li>Điều hành toàn bộ hoạt động kinh doanh, lập chiến lược bán hàng, theo dõi tiến độ các thương vụ quan trọng</li><li>Nâng cao mức hài lòng của khách hàng, chất lượng dịch vụ</li></ul></div>
+      <div class="card"><h3>④ Quản trị, tài chính</h3><ul class="jd-ul"><li>Điều hành, quản lý ngân sách, chi phí, dòng tiền và báo cáo tài chính</li><li>Phối hợp với nhân viên nội bộ và chuyên gia bên ngoài về kế toán, thuế, hợp đồng, kiểm soát nội bộ</li><li>Báo cáo định kỳ tình hình kinh doanh</li></ul></div>
+      <div class="card"><h3>⑤ Phối hợp với trụ sở Nhật Bản</h3><ul class="jd-ul"><li>Báo cáo định kỳ và đề xuất kinh doanh với trụ sở Nhật</li><li>Triển khai chính sách của trụ sở phù hợp với thực tế Việt Nam và quản lý tiến độ</li><li>Giao tiếp suôn sẻ, thu hẹp khác biệt tập quán kinh doanh và văn hoá giữa Nhật và Việt Nam</li></ul></div>
+      <div class="card"><h3>⑥ Tuân thủ, quản lý rủi ro</h3><ul class="jd-ul"><li>Bảo đảm tuân thủ đầy đủ pháp luật Việt Nam liên quan, nội quy công ty và chuẩn mực đạo đức</li><li>Nắm bắt, phân tích rủi ro trong vận hành và báo cáo trụ sở</li><li>Khi cần, đàm phán, phối hợp với chuyên gia pháp lý, kế toán, thuế bên ngoài</li></ul></div>
+    </div>
+  </div>
+</section>
+<section class="pg" data-chap="I" id="jd-req">
+  <span class="eb rv">03　<b>REQUIREMENTS</b></span>
+  <div class="rv" style="--d:60ms" data-l="ja">
+    <h2 class="kw kw--sm"><i>応募条件</i>と勤務条件</h2>
+    <div class="kwbar"><span></span></div>
+    <div class="g2">
+      <div class="card"><span class="lbl">◎必須条件</span><ul class="jd-ul"><li>大卒以上</li><li>語学力：日本語 ビジネスレベル（JLPT N2以上）、英語 日常会話〜業務連絡レベル（TOEIC 500点程度）</li><li>組織またはグループのマネジメント経験</li><li>経理・財務・事務関連の実務知識または経験</li></ul></div>
+      <div class="card"><span class="lbl">〇歓迎条件</span><ul class="jd-ul"><li>チーフアカウンタントの有資格者</li><li>製薬業界または理化学業界での実務経験</li><li>日系企業での実務経験（大いに歓迎）</li><li>新規顧客開拓および販路拡大（ビジネスデベロップメント）の経験</li></ul></div>
+    </div>
+    <div class="card" style="margin-top:12px"><span class="lbl">☆求める人物像など</span><ul class="jd-ul"><li>経営管理能力、的確な事業判断力を身につけたい・発揮したい方</li><li>日本とベトナムの商習慣や文化の違いを理解し、柔軟に橋渡しができるコミュニケーション力のある方</li><li>リモートワーク環境下でも自己管理ができ、主体性と責任感を持って自走できる方</li></ul></div>
+    <div class="tbw" style="margin-top:12px"><table class="tb jd-tb"><tbody>
+      <tr><td>日本語のレベル</td><td>議論や会議をリードできるレベル</td></tr>
+      <tr><td>ベトナム語のレベル</td><td>母国語</td></tr>
+      <tr><td>一次面接の種類</td><td>通常面接</td></tr>
+      <tr><td>休日についての説明</td><td>週休2日制（土日）、ベトナムの祝日</td></tr>
+      <tr><td>通勤・アクセス</td><td>勤務地：ベトナム・ホーチミン市（主に自宅でのテレワーク／リモートワーク）<br />※顧客訪問や出張時のみ移動が発生します。</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="rv" style="--d:60ms" data-l="en">
+    <h2 class="kw kw--sm"><i>Requirements</i> and working conditions</h2>
+    <div class="kwbar"><span></span></div>
+    <div class="g2">
+      <div class="card"><span class="lbl">◎ Required</span><ul class="jd-ul"><li>University degree or above</li><li>Languages: business-level Japanese (JLPT N2 or above); English for daily conversation to work communication (TOEIC around 500)</li><li>Experience managing an organisation or a group</li><li>Practical knowledge of, or experience in, accounting, finance and administration</li></ul></div>
+      <div class="card"><span class="lbl">〇 Preferred</span><ul class="jd-ul"><li>Qualified Chief Accountant</li><li>Practical experience in the pharmaceutical or scientific instruments industry</li><li>Practical experience at a Japanese company (strongly welcomed)</li><li>Experience winning new customers and expanding sales channels (business development)</li></ul></div>
+    </div>
+    <div class="card" style="margin-top:12px"><span class="lbl">☆ The person we are looking for</span><ul class="jd-ul"><li>Someone who wants to build, or put to use, management skills and sound business judgement</li><li>Someone who understands the differences in business practice and culture between Japan and Vietnam and can bridge them flexibly through strong communication</li><li>Someone who can manage themselves in a remote-work setting and drive work forward on their own with initiative and responsibility</li></ul></div>
+    <div class="tbw" style="margin-top:12px"><table class="tb jd-tb"><tbody>
+      <tr><td>Japanese level</td><td>Able to lead discussions and meetings</td></tr>
+      <tr><td>Vietnamese level</td><td>Native</td></tr>
+      <tr><td>First interview</td><td>Standard interview</td></tr>
+      <tr><td>Holidays</td><td>Two days off a week (Saturday and Sunday), Vietnamese public holidays</td></tr>
+      <tr><td>Commute and access</td><td>Location: Ho Chi Minh City, Vietnam (mainly teleworking / remote work from home)<br />* Travel only for customer visits and business trips.</td></tr>
+    </tbody></table></div>
+  </div>
+  <div class="rv" style="--d:60ms" data-l="vi">
+    <h2 class="kw kw--sm"><i>Điều kiện ứng tuyển</i> và điều kiện làm việc</h2>
+    <div class="kwbar"><span></span></div>
+    <div class="g2">
+      <div class="card"><span class="lbl">◎ Bắt buộc</span><ul class="jd-ul"><li>Tốt nghiệp đại học trở lên</li><li>Ngoại ngữ: tiếng Nhật mức thương mại (JLPT N2 trở lên), tiếng Anh từ giao tiếp hằng ngày đến trao đổi công việc (TOEIC khoảng 500)</li><li>Có kinh nghiệm quản lý tổ chức hoặc nhóm</li><li>Có kiến thức thực tế hoặc kinh nghiệm về kế toán, tài chính, hành chính</li></ul></div>
+      <div class="card"><span class="lbl">〇 Ưu tiên</span><ul class="jd-ul"><li>Có chứng chỉ Kế toán trưởng</li><li>Có kinh nghiệm thực tế trong ngành dược hoặc thiết bị khoa học, phòng thí nghiệm</li><li>Có kinh nghiệm làm việc tại công ty Nhật (rất hoan nghênh)</li><li>Có kinh nghiệm tìm khách hàng mới và mở rộng kênh bán hàng (phát triển kinh doanh)</li></ul></div>
+    </div>
+    <div class="card" style="margin-top:12px"><span class="lbl">☆ Hình mẫu ứng viên</span><ul class="jd-ul"><li>Người muốn rèn luyện hoặc phát huy năng lực quản trị và khả năng phán đoán kinh doanh chính xác</li><li>Người hiểu khác biệt tập quán kinh doanh và văn hoá giữa Nhật và Việt Nam, có khả năng giao tiếp để làm cầu nối linh hoạt</li><li>Người tự quản lý được khi làm việc từ xa, chủ động và có trách nhiệm, tự vận hành công việc</li></ul></div>
+    <div class="tbw" style="margin-top:12px"><table class="tb jd-tb"><tbody>
+      <tr><td>Trình độ tiếng Nhật</td><td>Có thể dẫn dắt thảo luận và cuộc họp</td></tr>
+      <tr><td>Trình độ tiếng Việt</td><td>Tiếng mẹ đẻ</td></tr>
+      <tr><td>Phỏng vấn vòng 1</td><td>Phỏng vấn thông thường</td></tr>
+      <tr><td>Ngày nghỉ</td><td>Nghỉ 2 ngày mỗi tuần (thứ Bảy, Chủ nhật), các ngày lễ của Việt Nam</td></tr>
+      <tr><td>Đi lại</td><td>Nơi làm việc: TP. Hồ Chí Minh, Việt Nam (chủ yếu làm việc từ xa tại nhà)<br />* Chỉ di chuyển khi gặp khách hàng hoặc đi công tác.</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+</main>
+<main class="wrap" data-view="match" hidden>
+<!-- Matching: điểm 1 đến 5 và %; mức JD là cách đọc yêu cầu trong JD, mức của tôi chỉ dựa trên dữ liệu đã có trong portfolio -->
+<section class="pg" data-chap="II" id="match-top">
+  <span class="eb rv">MATCHING　<b>JD #7639 × THAI TRAN HOANG NHA</b></span>
+  <div class="rv" style="--d:60ms" data-l="ja">
+    <h2 class="kw kw--sm">JDの<i>主要6スキル</i>と<br />私の経験の適合度</h2>
+    <div class="kwbar"><span></span></div>
+    <p class="kw-sub">JDの業務内容①～⑥と必須条件から、中心となる6つのスキルを選びました。点数は5段階です。JDの点数は求人票の書き方から読み取った求められる水準、私の点数はこのポートフォリオに書いた経歴と実績だけを根拠にしています。</p>
+  </div>
+  <div class="rv" style="--d:60ms" data-l="en">
+    <h2 class="kw kw--sm">How my experience matches<br />the JD's <i>6 core skills</i></h2>
+    <div class="kwbar"><span></span></div>
+    <p class="kw-sub">The six core skills come from responsibilities ① to ⑥ and the required conditions in the JD. Scores are on a five-point scale. The JD score is the level I read from the job posting; my score rests only on the career and results already shown in this portfolio.</p>
+  </div>
+  <div class="rv" style="--d:60ms" data-l="vi">
+    <h2 class="kw kw--sm">Mức khớp giữa kinh nghiệm của tôi<br />và <i>6 kỹ năng chính</i> trong JD</h2>
+    <div class="kwbar"><span></span></div>
+    <p class="kw-sub">6 kỹ năng chính lấy từ nội dung công việc ① đến ⑥ và điều kiện bắt buộc của JD. Thang điểm 5. Điểm JD là mức yêu cầu tôi đọc từ tin tuyển dụng; điểm của tôi chỉ dựa trên kinh nghiệm và thành tích đã ghi trong portfolio này.</p>
+  </div>
+  <div class="card rv radar-w" style="--d:120ms;margin-top:14px">
+    <svg class="radar" viewBox="-50 0 540 340" role="img" aria-label="Radar chart, my level / JD level (1-5): business planning 4/5, people management 5/5, sales and customers 3.5/4, accounting and finance 3.5/4, HQ liaison and Japanese 4.5/5, compliance and risk 3.5/4">
+      <polygon class="rg" points="220.0,146.0 240.8,158.0 240.8,182.0 220.0,194.0 199.2,182.0 199.2,158.0" />
+      <polygon class="rg" points="220.0,122.0 261.6,146.0 261.6,194.0 220.0,218.0 178.4,194.0 178.4,146.0" />
+      <polygon class="rg" points="220.0,98.0 282.4,134.0 282.4,206.0 220.0,242.0 157.6,206.0 157.6,134.0" />
+      <polygon class="rg" points="220.0,74.0 303.1,122.0 303.1,218.0 220.0,266.0 136.9,218.0 136.9,122.0" />
+      <polygon class="rg" points="220.0,50.0 323.9,110.0 323.9,230.0 220.0,290.0 116.1,230.0 116.1,110.0" />
+      <line class="ra" x1="220" y1="170" x2="220.0" y2="50.0" /><line class="ra" x1="220" y1="170" x2="323.9" y2="110.0" />
+      <line class="ra" x1="220" y1="170" x2="323.9" y2="230.0" /><line class="ra" x1="220" y1="170" x2="220.0" y2="290.0" />
+      <line class="ra" x1="220" y1="170" x2="116.1" y2="230.0" /><line class="ra" x1="220" y1="170" x2="116.1" y2="110.0" />
+      <text class="rt" x="224" y="144">1</text><text class="rt" x="224" y="120">2</text><text class="rt" x="224" y="96">3</text><text class="rt" x="224" y="72">4</text>
+      <polygon class="r-jd" points="220.0,50.0 323.9,110.0 303.1,218.0 220.0,266.0 116.1,230.0 136.9,122.0" />
+      <polygon class="r-me" points="220.0,74.0 323.9,110.0 292.7,212.0 220.0,254.0 126.5,224.0 147.3,128.0" />
+      <circle cx="220.0" cy="74.0" r="3.5" /><circle cx="323.9" cy="110.0" r="3.5" /><circle cx="292.7" cy="212.0" r="3.5" />
+      <circle cx="220.0" cy="254.0" r="3.5" /><circle cx="126.5" cy="224.0" r="3.5" /><circle cx="147.3" cy="128.0" r="3.5" />
+      <text class="rl" x="220" y="22" text-anchor="middle" data-l="ja">経営・事業計画</text>
+      <text class="rl" x="220" y="22" text-anchor="middle" data-l="en">Business planning</text>
+      <text class="rl" x="220" y="22" text-anchor="middle" data-l="vi">Kế hoạch kinh doanh</text>
+      <text class="rs" x="220" y="37" text-anchor="middle">4 / 5</text>
+      <text class="rl" x="336" y="96" text-anchor="start" data-l="ja">組織・人材管理</text>
+      <text class="rl" x="336" y="96" text-anchor="start" data-l="en">People management</text>
+      <text class="rl" x="336" y="96" text-anchor="start" data-l="vi">Quản lý nhân sự</text>
+      <text class="rs" x="336" y="111" text-anchor="start">5 / 5</text>
+      <text class="rl" x="336" y="244" text-anchor="start" data-l="ja">営業・顧客対応</text>
+      <text class="rl" x="336" y="244" text-anchor="start" data-l="en">Sales and customers</text>
+      <text class="rl" x="336" y="244" text-anchor="start" data-l="vi">Kinh doanh, khách hàng</text>
+      <text class="rs" x="336" y="259" text-anchor="start">3.5 / 4</text>
+      <text class="rl" x="220" y="312" text-anchor="middle" data-l="ja">経理・財務・管理</text>
+      <text class="rl" x="220" y="312" text-anchor="middle" data-l="en">Accounting and finance</text>
+      <text class="rl" x="220" y="312" text-anchor="middle" data-l="vi">Kế toán, tài chính</text>
+      <text class="rs" x="220" y="327" text-anchor="middle">3.5 / 4</text>
+      <text class="rl" x="104" y="244" text-anchor="end" data-l="ja">本社連携・日本語</text>
+      <text class="rl" x="104" y="244" text-anchor="end" data-l="en">HQ liaison, Japanese</text>
+      <text class="rl" x="104" y="244" text-anchor="end" data-l="vi">Kết nối HQ, tiếng Nhật</text>
+      <text class="rs" x="104" y="259" text-anchor="end">4.5 / 5</text>
+      <text class="rl" x="104" y="96" text-anchor="end" data-l="ja">法令・リスク管理</text>
+      <text class="rl" x="104" y="96" text-anchor="end" data-l="en">Compliance and risk</text>
+      <text class="rl" x="104" y="96" text-anchor="end" data-l="vi">Pháp lý, rủi ro</text>
+      <text class="rs" x="104" y="111" text-anchor="end">3.5 / 4</text>
+    </svg>
+  </div>
+  <div class="lg rv" style="--d:140ms;justify-content:center">
+    <span data-l="ja"><i style="background:#3b2f86"></i>私の水準（実線）　<i style="background:#F68209"></i>JDの要求水準（点線）　数字＝私 / JD</span>
+    <span data-l="en"><i style="background:#3b2f86"></i>My level (solid)　<i style="background:#F68209"></i>Level the JD asks for (dashed)　Numbers = me / JD</span>
+    <span data-l="vi"><i style="background:#3b2f86"></i>Mức của tôi (nét liền)　<i style="background:#F68209"></i>Mức JD yêu cầu (nét đứt)　Số = tôi / JD</span>
+  </div>
+  <div class="mt-kpi rv" style="--d:160ms;margin-top:14px">
+    <div class="card"><p class="num">89%</p><p class="num-l" data-l="ja">主要6スキルの適合率（各軸で 私÷JD、上限100%、6軸の平均）</p><p class="num-l" data-l="en">Match on the 6 core skills (me ÷ JD per axis, capped at 100%, averaged over 6 axes)</p><p class="num-l" data-l="vi">Mức khớp 6 kỹ năng chính (tôi ÷ JD từng trục, tối đa 100%, trung bình 6 trục)</p></div>
+    <div class="card"><p class="num">4 / 4</p><p class="num-l" data-l="ja">必須条件を満たす数（学歴、語学、マネジメント経験、経理・財務の実務知識）</p><p class="num-l" data-l="en">Required conditions met (degree, languages, management experience, practical accounting and finance knowledge)</p><p class="num-l" data-l="vi">Số điều kiện bắt buộc đáp ứng (bằng cấp, ngoại ngữ, kinh nghiệm quản lý, kiến thức kế toán, tài chính)</p></div>
+    <div class="card"><p class="num">2 / 4</p><p class="num-l" data-l="ja">歓迎条件を満たす数（日系企業での経験、新規顧客開拓（経験はあるが下の割合は75%）。チーフアカウンタント資格、製薬・理化学の経験はなし）</p><p class="num-l" data-l="en">Preferred conditions met (Japanese company experience, new-customer development (experience exists, rated 75% below); no Chief Accountant licence, no pharma or lab-instrument experience)</p><p class="num-l" data-l="vi">Số điều kiện ưu tiên đáp ứng (kinh nghiệm công ty Nhật, tìm khách mới (có kinh nghiệm, mức khớp 75% ở dưới); chưa có chứng chỉ Kế toán trưởng, chưa có kinh nghiệm ngành dược, thiết bị khoa học)</p></div>
+  </div>
+</section>
+<section class="pg" data-chap="III" id="match-core">
+  <span class="eb rv">01　<b>SCORING BASIS</b></span>
+  <div class="rv" style="--d:60ms" data-l="ja"><h2 class="kw kw--sm">6つの軸の<i>評価の根拠</i></h2><div class="kwbar"><span></span></div></div>
+  <div class="rv" style="--d:60ms" data-l="en"><h2 class="kw kw--sm">The <i>basis for each score</i> on the 6 axes</h2><div class="kwbar"><span></span></div></div>
+  <div class="rv" style="--d:60ms" data-l="vi"><h2 class="kw kw--sm"><i>Căn cứ chấm điểm</i> cho 6 trục</h2><div class="kwbar"><span></span></div></div>
+  <div class="tbw rv" style="--d:120ms"><table class="tb mc-tb"><thead><tr>
+    <th><span data-l="ja">スキル（JD）</span><span data-l="en">Skill (JD)</span><span data-l="vi">Kỹ năng (JD)</span></th>
+    <th class="r"><span data-l="ja">私 / JD</span><span data-l="en">Me / JD</span><span data-l="vi">Tôi / JD</span></th>
+    <th><span data-l="ja">根拠（このポートフォリオの記載）</span><span data-l="en">Basis (as stated in this portfolio)</span><span data-l="vi">Căn cứ (theo nội dung portfolio này)</span></th>
+  </tr></thead><tbody>
+    <tr class="mc-row"><td><b data-l="ja">経営・事業計画（➀）</b><b data-l="en">Business planning (①)</b><b data-l="vi">Kế hoạch kinh doanh (①)</b></td><td class="r mc-sc">4 / 5</td>
+      <td class="sm"><span data-l="ja">JILNESTAベトナム支店長（2019年2月～2022年2月）として約27名の支店の予算と売上目標を管理し、営業プロセスと管理体制をゼロから構築。KPI低下時は原因を分析して目標を再設定。法人全体の事業計画とキャッシュフローの責任者の経験はないため4。</span><span data-l="en">As JILNESTA Vietnam branch manager (Feb 2019 to Feb 2022) I managed the budget and sales targets of a branch of about 27 people and built its sales process and management system from scratch; when KPIs fell I found the cause and reset targets. I have not owned a whole legal entity's business plan and cash flow, so 4.</span><span data-l="vi">Là Giám đốc chi nhánh JILNESTA Việt Nam (02/2019 đến 02/2022), quản lý ngân sách và mục tiêu doanh số của chi nhánh khoảng 27 người, xây dựng quy trình kinh doanh và bộ máy quản lý từ đầu; khi KPI giảm thì phân tích nguyên nhân và đặt lại mục tiêu. Chưa từng chịu trách nhiệm kế hoạch kinh doanh và dòng tiền của cả pháp nhân, nên 4.</span></td></tr>
+    <tr class="mc-row"><td><b data-l="ja">組織・人材管理（➁）</b><b data-l="en">People management (②)</b><b data-l="vi">Quản lý nhân sự (②)</b></td><td class="r mc-sc">5 / 5</td>
+      <td class="sm"><span data-l="ja">MAYEKAWA VIETNAMの人事部長（2024年3月～現在）として人事チームを1名から5名に拡大し、評価制度、KPI、採用、労務、規程を統括。支店長時代は5～6名を直接管理。</span><span data-l="en">As HR head at MAYEKAWA VIETNAM (Mar 2024 to now) I grew the HR team from 1 to 5 people and run the evaluation system, KPIs, hiring, labour matters and company rules. As branch manager I directly managed 5 to 6 people.</span><span data-l="vi">Là Trưởng phòng Nhân sự MAYEKAWA VIETNAM (03/2024 đến nay), mở rộng đội nhân sự từ 1 lên 5 người, phụ trách hệ thống đánh giá, KPI, tuyển dụng, lao động và nội quy. Thời làm Giám đốc chi nhánh trực tiếp quản lý 5 đến 6 người.</span></td></tr>
+    <tr class="mc-row"><td><b data-l="ja">営業・顧客対応（➂）</b><b data-l="en">Sales and customers (③)</b><b data-l="vi">Kinh doanh, khách hàng (③)</b></td><td class="r mc-sc">3.5 / 4</td>
+      <td class="sm"><span data-l="ja">MAYEKAWA VIETNAM営業部アシスタントマネージャー（2022年2月～2024年3月）として営業担当2～3名を管理し、予算、売上、経費、見積を管理。支店長時代は日本、欧州、アジアの顧客とBtoB契約を締結。会社の営業全体を統括する立場は支店長時代のみのため3.5。</span><span data-l="en">As sales Assistant Manager at MAYEKAWA VIETNAM (Feb 2022 to Mar 2024) I managed 2 to 3 sales staff and the budget, revenue, expenses and quotations. As branch manager I signed B2B contracts with customers in Japan, Europe and Asia. I led all sales only as branch manager, so 3.5.</span><span data-l="vi">Là Phó phòng Kinh doanh MAYEKAWA VIETNAM (02/2022 đến 03/2024), quản lý 2 đến 3 nhân viên sales cùng ngân sách, doanh số, chi phí và báo giá. Thời làm Giám đốc chi nhánh ký hợp đồng B2B với khách hàng Nhật, châu Âu, châu Á. Chỉ điều hành toàn bộ mảng kinh doanh khi làm Giám đốc chi nhánh, nên 3.5.</span></td></tr>
+    <tr class="mc-row"><td><b data-l="ja">経理・財務・管理（④）</b><b data-l="en">Accounting and finance (④)</b><b data-l="vi">Kế toán, tài chính (④)</b></td><td class="r mc-sc">3.5 / 4</td>
+      <td class="sm"><span data-l="ja">財務、管理専攻の修士（2014年）、銀行の国際決済担当（2011～2015年）、支店の会計、給与、保険の管理、販管費の予実管理と会計との突合、監査・決算資料の準備。チーフアカウンタント資格と財務報告の統括経験はないため3.5。</span><span data-l="en">Master's in finance and management (2014), international payments at a bank (2011 to 2015), branch accounting, payroll and insurance, budget-versus-actual for S&amp;A costs reconciled with accounting, and preparing audit and closing documents. No Chief Accountant licence and no experience owning financial reporting, so 3.5.</span><span data-l="vi">Thạc sĩ Tài chính, Quản lý (2014), thanh toán quốc tế tại ngân hàng (2011 đến 2015), quản lý kế toán, lương, bảo hiểm của chi nhánh, theo dõi chi phí bán hàng và quản lý so với kế hoạch và đối chiếu với kế toán, chuẩn bị hồ sơ kiểm toán, quyết toán. Chưa có chứng chỉ Kế toán trưởng và chưa từng phụ trách báo cáo tài chính, nên 3.5.</span></td></tr>
+    <tr class="mc-row"><td><b data-l="ja">本社連携・日本語（➄）</b><b data-l="en">HQ liaison, Japanese (⑤)</b><b data-l="vi">Kết nối HQ, tiếng Nhật (⑤)</b></td><td class="r mc-sc">4.5 / 5</td>
+      <td class="sm"><span data-l="ja">JLPT N2（2016年）。日本人社長への直接報告、東京本社への日本語の週次報告、日本の工場との週次CRM会議（約30回）、通訳とITコミュニケーターの経験。JDの求める「会議をリードできる」水準に近いが、N1ではないため4.5。</span><span data-l="en">JLPT N2 (2016). Direct reporting to Japanese presidents, weekly reports in Japanese to the Tokyo head office, weekly CRM meetings with the factory in Japan (about 30), experience as interpreter and IT communicator. Close to the "can lead meetings" level the JD asks for, but not N1, so 4.5.</span><span data-l="vi">JLPT N2 (2016). Báo cáo trực tiếp Tổng giám đốc người Nhật, báo cáo tuần bằng tiếng Nhật cho trụ sở Tokyo, họp CRM hằng tuần với nhà máy Nhật (khoảng 30 buổi), kinh nghiệm phiên dịch và IT communicator. Gần mức "dẫn dắt được cuộc họp" mà JD yêu cầu nhưng chưa có N1, nên 4.5.</span></td></tr>
+    <tr class="mc-row"><td><b data-l="ja">法令・リスク管理（⑥）</b><b data-l="en">Compliance and risk (⑥)</b><b data-l="vi">Pháp lý, rủi ro (⑥)</b></td><td class="r mc-sc">3.5 / 4</td>
+      <td class="sm"><span data-l="ja">ベトナム労働法に沿った給与、社会保険、個人所得税、労働契約の管理、就業規則と社内規程の改定、労働局、社会保険機関、税務当局との連携、日本人の就労ビザ。税務、契約、内部統制の全体の統括経験はないため3.5。</span><span data-l="en">Payroll, social insurance, personal income tax and labour contracts under Vietnamese labour law; revising work rules and company rules; working with the labour office, social insurance agency and tax authority; work visas for Japanese staff. No experience owning tax, contracts and internal control as a whole, so 3.5.</span><span data-l="vi">Quản lý lương, bảo hiểm xã hội, thuế thu nhập cá nhân, hợp đồng lao động theo Luật Lao động Việt Nam; sửa nội quy lao động và quy định công ty; làm việc với cơ quan lao động, bảo hiểm xã hội, thuế; giấy phép lao động cho người Nhật. Chưa từng phụ trách toàn bộ thuế, hợp đồng, kiểm soát nội bộ, nên 3.5.</span></td></tr>
+  </tbody></table></div>
+  <p class="note rv" style="--d:160ms"><span data-l="ja">JDの点数：会社の経営そのものに直結する➀➁➄は5、➂④⑥は4としました。</span><span data-l="en">JD scores: ①, ② and ⑤, which go to the heart of running the company, are set at 5; ③, ④ and ⑥ at 4.</span><span data-l="vi">Điểm JD: ①, ② và ⑤ gắn trực tiếp với việc điều hành công ty nên đặt 5; ③, ④ và ⑥ đặt 4.</span></p>
+</section>
+<section class="pg" data-chap="IV" id="match-other">
+  <span class="eb rv">02　<b>OTHER CRITERIA</b></span>
+  <div class="rv" style="--d:60ms" data-l="ja"><h2 class="kw kw--sm">その他の条件と<i>スキルの適合率</i></h2><div class="kwbar"><span></span></div><p class="kw-sub">必須条件の残り、歓迎条件、求める人物像を、私のスキルと照らし合わせた割合（%）です。</p></div>
+  <div class="rv" style="--d:60ms" data-l="en"><h2 class="kw kw--sm">Other criteria and <i>my match rate</i></h2><div class="kwbar"><span></span></div><p class="kw-sub">The rest of the required conditions, the preferred conditions and the profile the JD describes, compared with my skills as a percentage.</p></div>
+  <div class="rv" style="--d:60ms" data-l="vi"><h2 class="kw kw--sm">Các tiêu chí khác và <i>tỷ lệ khớp</i></h2><div class="kwbar"><span></span></div><p class="kw-sub">Phần còn lại của điều kiện bắt buộc, điều kiện ưu tiên và hình mẫu ứng viên trong JD, so với kỹ năng của tôi theo tỷ lệ phần trăm.</p></div>
+  <div class="card rv" style="--d:120ms">
+    <div class="mb-row" data-pct="100"><div class="mb-h"><b data-l="ja">英語（TOEIC 500点程度）</b><b data-l="en">English (TOEIC around 500)</b><b data-l="vi">Tiếng Anh (TOEIC khoảng 500)</b><em>100%</em></div><div class="bar"><span style="width:100%"></span></div>
+      <p class="mb-why" data-l="ja">TOEIC 680点（2011年）。韓国、タイのASEAN会議で英語で報告、英語での契約交渉。</p><p class="mb-why" data-l="en">TOEIC 680 (2011). Reported in English at ASEAN meetings in Korea and Thailand; contract negotiations in English.</p><p class="mb-why" data-l="vi">TOEIC 680 (2011). Báo cáo bằng tiếng Anh tại họp ASEAN ở Hàn Quốc, Thái Lan; đàm phán hợp đồng bằng tiếng Anh.</p></div>
+    <div class="mb-row" data-pct="100"><div class="mb-h"><b data-l="ja">学歴（大卒以上）</b><b data-l="en">Education (degree or above)</b><b data-l="vi">Học vấn (đại học trở lên)</b><em>100%</em></div><div class="bar"><span style="width:100%"></span></div>
+      <p class="mb-why" data-l="ja">ホーチミン市経済大学 学士（2011年）、同大学院 財務、管理専攻 修士（2014年）。</p><p class="mb-why" data-l="en">Bachelor's (2011) and Master's in finance and management (2014), University of Economics Ho Chi Minh City.</p><p class="mb-why" data-l="vi">Cử nhân (2011) và Thạc sĩ Tài chính, Quản lý (2014), Đại học Kinh tế TP. Hồ Chí Minh.</p></div>
+    <div class="mb-row" data-pct="100"><div class="mb-h"><b data-l="ja">日系企業での実務経験</b><b data-l="en">Experience at Japanese companies</b><b data-l="vi">Kinh nghiệm tại công ty Nhật</b><em>100%</em></div><div class="bar"><span style="width:100%"></span></div>
+      <p class="mb-why" data-l="ja">2015年から11年以上、日系企業3社（Isuzu Vietnam、JILNESTA、MAYEKAWA VIETNAM）で勤務。</p><p class="mb-why" data-l="en">More than 11 years since 2015 at three Japanese companies (Isuzu Vietnam, JILNESTA, MAYEKAWA VIETNAM).</p><p class="mb-why" data-l="vi">Hơn 11 năm từ 2015 tại 3 công ty Nhật (Isuzu Vietnam, JILNESTA, MAYEKAWA VIETNAM).</p></div>
+    <div class="mb-row" data-pct="90"><div class="mb-h"><b data-l="ja">日越の商習慣、文化の橋渡し</b><b data-l="en">Bridging Japanese and Vietnamese business culture</b><b data-l="vi">Cầu nối tập quán, văn hoá Nhật Việt</b><em>90%</em></div><div class="bar"><span style="width:90%"></span></div>
+      <p class="mb-why" data-l="ja">日本語通訳（Isuzu）、日本の顧客と開発チームをつなぐITコミュニケーター（JILNESTA）、日本人社長の補佐と直接報告。</p><p class="mb-why" data-l="en">Japanese interpreter (Isuzu), IT communicator linking Japanese clients and the development team (JILNESTA), assistant and direct report to Japanese presidents.</p><p class="mb-why" data-l="vi">Phiên dịch tiếng Nhật (Isuzu), IT communicator nối khách Nhật với đội phát triển (JILNESTA), trợ lý và báo cáo trực tiếp Tổng giám đốc người Nhật.</p></div>
+    <div class="mb-row" data-pct="90"><div class="mb-h"><b data-l="ja">定期レポーティング（Excel、PowerPoint、AI）</b><b data-l="en">Regular reporting (Excel, PowerPoint, AI)</b><b data-l="vi">Báo cáo định kỳ (Excel, PowerPoint, AI)</b><em>90%</em></div><div class="bar"><span style="width:90%"></span></div>
+      <p class="mb-why" data-l="ja">支店長時代は本社社長へ日次、週次、月次で報告。Excelで予算、売上、KPIを管理し、Claudeでチームの日報を集計。</p><p class="mb-why" data-l="en">As branch manager, daily, weekly and monthly reports to the head office president. Budgets, sales and KPIs in Excel; team daily reports compiled with Claude.</p><p class="mb-why" data-l="vi">Thời làm Giám đốc chi nhánh báo cáo ngày, tuần, tháng cho Tổng giám đốc trụ sở. Quản lý ngân sách, doanh số, KPI bằng Excel; tổng hợp báo cáo ngày của đội bằng Claude.</p></div>
+    <div class="mb-row" data-pct="75"><div class="mb-h"><b data-l="ja">新規顧客開拓、販路拡大</b><b data-l="en">New customers and sales channels</b><b data-l="vi">Tìm khách mới, mở rộng kênh bán</b><em>75%</em></div><div class="bar bar--mid"><span style="width:75%"></span></div>
+      <p class="mb-why" data-l="ja">日本、欧州、アジアの顧客とBtoB契約を締結、メコンデルタ5省13社の訪問計画、新規事業の検討。新規開拓の売上金額は記載なし。</p><p class="mb-why" data-l="en">Signed B2B contracts with customers in Japan, Europe and Asia, planned visits to 13 companies in 5 Mekong Delta provinces, looked into new business. No new-business revenue figures are given.</p><p class="mb-why" data-l="vi">Ký hợp đồng B2B với khách Nhật, châu Âu, châu Á; lập lịch gặp 13 công ty ở 5 tỉnh miền Tây; nghiên cứu mảng kinh doanh mới. Không có số liệu doanh số từ khách mới.</p></div>
+    <div class="mb-row" data-pct="70"><div class="mb-h"><b data-l="ja">リモート環境での自己管理</b><b data-l="en">Self-management in remote work</b><b data-l="vi">Tự quản lý khi làm việc từ xa</b><em>70%</em></div><div class="bar bar--mid"><span style="width:70%"></span></div>
+      <p class="mb-why" data-l="ja">オンサイト、リモート契約の運用、日本とのオンライン会議、Microsoft 365とAIでのタスクと進捗の管理。在宅勤務を常勤で続けた経験はない。</p><p class="mb-why" data-l="en">Ran on-site and remote contracts, online meetings with Japan, tasks and progress tracked in Microsoft 365 and with AI. No record of full-time work from home.</p><p class="mb-why" data-l="vi">Vận hành hợp đồng on-site và remote, họp online với Nhật, quản lý công việc và tiến độ bằng Microsoft 365 và AI. Chưa có kinh nghiệm làm việc tại nhà toàn thời gian.</p></div>
+    <div class="mb-row" data-pct="20"><div class="mb-h"><b data-l="ja">製薬、理化学業界の経験</b><b data-l="en">Pharma or lab-instrument industry</b><b data-l="vi">Kinh nghiệm ngành dược, thiết bị khoa học</b><em>20%</em></div><div class="bar bar--lo"><span style="width:20%"></span></div>
+      <p class="mb-why" data-l="ja">直接の経験はない。産業用冷凍設備をエンジニアと提案した技術系BtoB営業は近い分野。</p><p class="mb-why" data-l="en">No direct experience. Technical B2B sales of industrial refrigeration with engineers is a related field.</p><p class="mb-why" data-l="vi">Chưa có kinh nghiệm trực tiếp. Kinh doanh B2B thiết bị kỹ thuật (máy lạnh công nghiệp) cùng kỹ sư là lĩnh vực gần.</p></div>
+    <div class="mb-row" data-pct="0"><div class="mb-h"><b data-l="ja">チーフアカウンタント資格</b><b data-l="en">Chief Accountant licence</b><b data-l="vi">Chứng chỉ Kế toán trưởng</b><em>0%</em></div><div class="bar bar--lo"><span style="width:0%"></span></div>
+      <p class="mb-why" data-l="ja">保有していない。財務の修士と経理の実務経験はある（4軸目を参照）。</p><p class="mb-why" data-l="en">Not held. I have a Master's in finance and hands-on accounting work (see axis 4).</p><p class="mb-why" data-l="vi">Chưa có. Có bằng Thạc sĩ Tài chính và kinh nghiệm kế toán thực tế (xem trục 4).</p></div>
+  </div>
+  <p class="note rv" style="--d:160ms"><span data-l="ja">割合は資格や記録の有無で決めています：要件を超えるものは100%、記録があり一部が足りないものは70～90%、近い分野の経験だけのものは20%、ないものは0%。</span><span data-l="en">Percentages follow what is on record: 100% when the requirement is exceeded, 70 to 90% when there is a record but part is missing, 20% for related-field experience only, 0% when absent.</span><span data-l="vi">Tỷ lệ dựa trên bằng chứng có ghi nhận: 100% khi vượt yêu cầu, 70 đến 90% khi có ghi nhận nhưng còn thiếu một phần, 20% khi chỉ có kinh nghiệm lĩnh vực gần, 0% khi không có.</span></p>
+</section>
+</main>
 
 <script>
 (function(){
@@ -1533,6 +1981,20 @@ main[hidden]{display:none!important}
   imgs.forEach(function(i){i.dataset.altJa=i.alt});
   function altLang(){var l=document.documentElement.lang;imgs.forEach(function(i){i.alt=l==='vi'?i.dataset.altVi:l==='en'?i.dataset.altEn:i.dataset.altJa})}
   new MutationObserver(altLang).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+})();
+</script>
+<script>
+(function(){
+  /* Career lồng vị trí theo công ty: bản dịch [vi, en] cho chuỗi mới */
+  var D2=window.__D2=window.__D2||{};
+  var X={
+  "2022年2月 ～ 現在":["02/2022 – nay", "Feb 2022 – present"],
+  "2019年2月 ～ 2022年2月":["02/2019 – 02/2022", "Feb 2019 – Feb 2022"],
+  "2017年8月 ～ 2019年2月":["08/2017 – 02/2019", "Aug 2017 – Feb 2019"],
+  "ベトナム支店 支店長 ／ 関連スキル：01、02":["Giám đốc chi nhánh Việt Nam / Kỹ năng liên quan: 01, 02", "Vietnam Branch Manager / Related skills: 01, 02"],
+  "ITコミュニケーター":["IT Communicator", "IT Communicator"]
+  };
+  Object.keys(X).forEach(function(k){if(!(k in D2))D2[k]=X[k]});
 })();
 </script>
 <script>
