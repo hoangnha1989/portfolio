@@ -11,6 +11,10 @@ const ok = (cond, msg) => { if (!cond) fails.push(msg); };
 const top = (html.match(/<nav class="top-nav"[^>]*>([\s\S]*?)<\/nav>/) || [])[1] || '';
 ok(/<a href="#exp-top" data-view="exp">[^<]*Horenso[^<]*<\/a>/.test(top), 'top-nav thiếu link #exp-top data-view="exp"');
 for (const v of ['profile', 'finance', 'hr', 'sales', 'jd', 'match']) ok(top.includes(`data-view="${v}"`), `top-nav mất menu cũ ${v}`);
+// Là 1 mục Task: nhãn "Task: Management & Horenso", đứng ngay bên phải "Task: HR"
+const views = [...top.matchAll(/data-view="([^"]+)"/g)].map((m) => m[1]);
+ok(/<a href="#exp-top" data-view="exp">Task: Management &amp; Horenso<\/a>/.test(top), 'nhãn menu exp phải là "Task: Management & Horenso"');
+ok(views.indexOf('exp') === views.indexOf('hr') + 1, `menu exp phải ngay sau Task: HR (thứ tự hiện tại: ${views.join(', ')})`);
 
 // 2. View + sidebar: mọi section có link sb-nav đủ 3 ngôn ngữ, nằm trong đúng <main data-view="exp">
 const main = (html.match(/<main class="wrap" data-view="exp" hidden>([\s\S]*?)<\/main>/) || [])[1] || '';
